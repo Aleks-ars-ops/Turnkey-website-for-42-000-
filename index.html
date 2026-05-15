@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Санкт-Петербург | Такси «Быстрое»</title>
+    <title>Цветы42 | Доставка цветов по Санкт-Петербургу</title>
     <style>
         * {
             margin: 0;
@@ -11,72 +11,55 @@
             box-sizing: border-box;
         }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.5;
-            color: #222;
-            background: #f4f4f4;
+            color: #2d1a11;
+            background: #fef7f0;
         }
-        /* НАВИГАЦИЯ */
         nav {
-            background: #1a1a2e;
+            background: #2d1a11;
             color: white;
-            padding: 15px 20px;
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 1rem;
             position: sticky;
             top: 0;
             z-index: 100;
         }
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: bold;
         }
         .nav-links a {
             color: white;
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 1.5rem;
         }
         .nav-links a:hover {
-            color: #ff9800;
+            color: #ffb347;
         }
-        /* ГЛАВНЫЙ ЭКРАН */
         .hero {
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            color: white;
+            background: linear-gradient(135deg, #f5a623, #ffd194);
             text-align: center;
             padding: 60px 20px;
+            color: #2d1a11;
         }
         .hero h1 {
             font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-        .price {
-            background: #ff9800;
-            color: #1a1a2e;
-            display: inline-block;
-            padding: 10px 25px;
-            border-radius: 40px;
-            font-size: 1.6rem;
-            font-weight: bold;
-            margin: 20px 0;
+            margin-bottom: 1rem;
         }
         .btn {
             display: inline-block;
-            background: #ff9800;
-            color: #1a1a2e;
+            background: #2d1a11;
+            color: white;
             padding: 12px 30px;
-            border-radius: 30px;
+            border-radius: 40px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background: #e68900;
+            margin-top: 1.5rem;
         }
         .container {
             max-width: 1100px;
@@ -86,13 +69,13 @@
         section {
             padding: 50px 0;
             background: white;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 1px solid #f0e0d0;
         }
         section h2 {
             text-align: center;
             margin-bottom: 35px;
             font-size: 1.8rem;
-            color: #1a1a2e;
+            color: #2d1a11;
         }
         .services {
             display: flex;
@@ -100,27 +83,28 @@
             gap: 25px;
             justify-content: center;
         }
-        .service-item {
-            background: #f9f9f9;
+        .service-card {
+            background: #fef7f0;
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 16px;
             flex: 1;
             min-width: 200px;
             text-align: center;
-            border: 1px solid #eee;
+            border: 1px solid #f0e0d0;
         }
-        .service-item h3 {
+        .service-card h3 {
+            color: #f5a623;
             margin-bottom: 10px;
-            color: #ff9800;
         }
-        .service-price {
+        .price {
             font-size: 1.3rem;
             font-weight: bold;
             margin: 15px 0;
+            color: #2d1a11;
         }
         .about p {
             max-width: 800px;
-            margin: 0 auto 20px;
+            margin: 0 auto 15px;
             text-align: center;
         }
         .contact-grid {
@@ -134,8 +118,8 @@
         }
         .map {
             height: 250px;
-            background: #ddd;
-            border-radius: 12px;
+            background: #e0d0c0;
+            border-radius: 16px;
             overflow: hidden;
         }
         .map iframe {
@@ -144,7 +128,7 @@
             border: 0;
         }
         footer {
-            background: #1a1a2e;
+            background: #2d1a11;
             color: white;
             text-align: center;
             padding: 25px;
@@ -156,7 +140,7 @@
                 text-align: center;
             }
             .nav-links a {
-                margin: 0 10px;
+                margin: 0 0.8rem;
             }
             .hero h1 {
                 font-size: 1.8rem;
@@ -170,54 +154,49 @@
 <body>
 
 <nav>
-    <div class="logo">Такси «Быстрое»</div>
+    <div class="logo">Цветы42</div>
     <div class="nav-links">
         <a href="#">Главная</a>
-        <a href="#services">Услуги</a>
+        <a href="#bouquets">Букеты</a>
         <a href="#about">О нас</a>
         <a href="#contacts">Контакты</a>
     </div>
 </nav>
 
 <div class="hero">
-    <h1>Такси «Быстрое»</h1>
-    <p>Подача машины за 5 минут. Фиксированные цены по Санкт-Петербургу</p>
-    <div class="price">42 000 ₽</div>
-    <div style="font-size: 0.9rem;">Домен и хостинг на год уже в подарок</div>
-    <a href="#contacts" class="btn">Заказать такси</a>
+    <h1>Доставка цветов по Санкт-Петербургу</h1>
+    <p>Свежие букеты за 2 часа. От 1 500 ₽</p>
+    <a href="#contacts" class="btn">Заказать букет</a>
 </div>
 
 <div class="container">
-    <section id="services">
-        <h2>Наши тарифы</h2>
+    <section id="bouquets">
+        <h2>Наши букеты</h2>
         <div class="services">
-            <div class="service-item">
-                <h3>Эконом</h3>
-                <p>Hyundai Solaris, Kia Rio</p>
-                <div class="service-price">199 ₽ посадка</div>
-                <p>+ 25 ₽/км</p>
+            <div class="service-card">
+                <h3>Розы 51 см</h3>
+                <p>Красные, белые, розовые</p>
+                <div class="price">3 500 ₽</div>
             </div>
-            <div class="service-item">
-                <h3>Комфорт</h3>
-                <p>Toyota Camry, Skoda Octavia</p>
-                <div class="service-price">299 ₽ посадка</div>
-                <p>+ 35 ₽/км</p>
+            <div class="service-card">
+                <h3>Пионы</h3>
+                <p>Сезонные, нежные</p>
+                <div class="price">4 200 ₽</div>
             </div>
-            <div class="service-item">
-                <h3>Минивэн</h3>
-                <p>До 7 мест, для аэропорта</p>
-                <div class="service-price">499 ₽ фикс</div>
-                <p>до Пулково</p>
+            <div class="service-card">
+                <h3>Хризантемы</h3>
+                <p>Кустовые, яркие</p>
+                <div class="price">2 800 ₽</div>
             </div>
         </div>
     </section>
 
     <section id="about">
-        <h2>О такси «Быстрое»</h2>
+        <h2>О компании</h2>
         <div class="about">
-            <p>Работаем в Санкт-Петербурге с 2015 года. Более 50 машин в парке. Все водители проходят медицинский контроль и знают город.</p>
-            <p>Детское кресло — бесплатно. Животные в переноске — бесплатно. Помощь с багажом — всегда.</p>
-            <p>🕒 Круглосуточно, без выходных</p>
+            <p>Магазин «Цветы42» работает с 2015 года. Мы закупаем цветы напрямую из Голландии и Эквадора.</p>
+            <p>Доставка по Санкт-Петербургу — 199 ₽. Бесплатно при заказе от 5 000 ₽.</p>
+            <p>Открыты ежедневно с 9:00 до 21:00</p>
         </div>
     </section>
 
@@ -225,11 +204,10 @@
         <h2>Контакты</h2>
         <div class="contact-grid">
             <div class="contact-info">
-                <p>📞 <strong>Телефон:</strong> <a href="tel:+78121234567" style="color:#ff9800;">+7 (812) 123-45-67</a></p>
-                <p>💬 <strong>Telegram:</strong> @bistrotaxi_spb</p>
-                <p>📍 <strong>Адрес офиса:</strong> ул. Садовая, д. 28, Санкт-Петербург</p>
-                <p>🕒 <strong>Работаем:</strong> 24/7, без выходных</p>
-                <p>📱 <strong>Приложение:</strong> Яндекс.Такси, Uber</p>
+                <p>📞 <strong>Телефон:</strong> <a href="tel:+78127770000" style="color:#f5a623;">+7 (812) 777-00-00</a></p>
+                <p>💬 <strong>Telegram:</strong> @cvety42</p>
+                <p>📍 <strong>Адрес:</strong> Невский пр., д. 42, Санкт-Петербург</p>
+                <p>🕒 <strong>Режим работы:</strong> 9:00–21:00 ежедневно</p>
             </div>
             <div class="map">
                 <iframe 
@@ -242,8 +220,7 @@
 </div>
 
 <footer>
-    <p>© 2026 Такси «Быстрое». Сайт под ключ за 42 000 ₽</p>
-    <p style="margin-top: 8px;">Пример готового сайта для клиента</p>
+    <p>© 2026 Цветы42 — доставка цветов по Санкт-Петербургу</p>
 </footer>
 
 </body>
