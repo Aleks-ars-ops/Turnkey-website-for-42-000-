@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мастерская мебели «ДеревоСтиль» — сайт под ключ</title>
+    <title>Сайт под ключ | Демо за 42 000 ₽</title>
     <style>
         * {
             margin: 0;
@@ -11,139 +11,272 @@
             box-sizing: border-box;
         }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #2c3e2f;
-            background: #fef9e8;
+            color: #1e293b;
+            background: #f1f5f9;
         }
-        .header {
-            background: #3b5c3a;
+        /* ШАПКА И НАВИГАЦИЯ */
+        .navbar {
+            background: #0f172a;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            color: #22c55e;
+        }
+        /* ГЛАВНЫЙ ЭКРАН */
+        .hero {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
-        .header h1 {
+        .hero h1 {
             font-size: 2.5rem;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
         }
-        .header p {
+        .hero p {
             font-size: 1.2rem;
-            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
+        .price-badge {
+            background: #22c55e;
+            color: #0f172a;
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+        }
+        /* КОНТЕЙНЕР */
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
+        /* СЕКЦИИ */
         .section {
-            padding: 50px 0;
-            border-bottom: 1px solid #e0d6c0;
+            padding: 60px 0;
+            border-bottom: 1px solid #cbd5e1;
+            background: white;
+        }
+        .section:nth-child(even) {
+            background: #f8fafc;
         }
         .section h2 {
             text-align: center;
-            margin-bottom: 30px;
-            color: #3b5c3a;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #0f172a;
         }
-        .services {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
-            justify-content: center;
+        /* КАРТОЧКИ УСЛУГ */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
         }
         .service-card {
             background: white;
             padding: 25px;
-            border-radius: 12px;
-            flex: 1;
-            min-width: 200px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
             text-align: center;
+            border: 1px solid #e2e8f0;
         }
         .service-card h3 {
-            margin-bottom: 10px;
-            color: #3b5c3a;
+            margin-bottom: 15px;
+            color: #0f172a;
         }
-        .price {
+        .service-price {
             font-size: 1.5rem;
             font-weight: bold;
-            color: #c47a2e;
+            color: #22c55e;
             margin: 15px 0;
         }
-        .btn {
-            display: inline-block;
-            background: #c47a2e;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 25px;
-            margin-top: 10px;
+        /* О КОМПАНИИ */
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
         }
-        .contact {
-            background: #3b5c3a;
+        /* КОНТАКТЫ И КАРТА */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .contact-info p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        .map {
+            background: #e2e8f0;
+            height: 250px;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        /* ПОДВАЛ */
+        .footer {
+            background: #0f172a;
             color: white;
             text-align: center;
             padding: 30px;
+            font-size: 0.9rem;
         }
-        .footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.8rem;
-            background: #e8e0ce;
+        /* КНОПКА */
+        .btn {
+            display: inline-block;
+            background: #22c55e;
+            color: #0f172a;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #16a34a;
+            transform: scale(1.02);
+        }
+        /* АДАПТИВ */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .nav-links {
+                justify-content: center;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .section h2 {
+                font-size: 1.6rem;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <h1>Мастерская мебели «ДеревоСтиль»</h1>
-    <p>Мебель ручной работы из массива сосны и дуба</p>
+<!-- НАВИГАЦИОННАЯ ПАНЕЛЬ -->
+<div class="navbar">
+    <div class="logo">Компания</div>
+    <div class="nav-links">
+        <a href="#">Главная</a>
+        <a href="#services">Услуги</a>
+        <a href="#about">О нас</a>
+        <a href="#contacts">Контакты</a>
+    </div>
+</div>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+<div class="hero">
+    <h1>Сайт под ключ</h1>
+    <p>Полностью готовый, адаптивный сайт с навигацией, картой и контактами</p>
+    <div class="price-badge">42 000 ₽</div>
+    <div style="margin-top: 20px; font-size: 0.9rem;">Домен и хостинг на год — в подарок</div>
 </div>
 
 <div class="container">
-    <div class="section">
-        <h2>Наши услуги</h2>
-        <div class="services">
+    <!-- УСЛУГИ -->
+    <div id="services" class="section">
+        <h2>Что входит в стоимость</h2>
+        <div class="services-grid">
             <div class="service-card">
-                <h3>Кухни на заказ</h3>
-                <p>Индивидуальный проект, любой размер</p>
-                <div class="price">от 80 000 ₽</div>
-                <a href="#" class="btn">Заказать</a>
+                <h3>🎨 Дизайн</h3>
+                <p>Уникальный дизайн под ваш бизнес, не шаблон</p>
+                <div class="service-price">✓</div>
             </div>
             <div class="service-card">
-                <h3>Шкафы-купе</h3>
-                <p>Встроенные и отдельностоящие</p>
-                <div class="price">от 35 000 ₽</div>
-                <a href="#" class="btn">Заказать</a>
+                <h3>📱 Адаптивность</h3>
+                <p>Корректно работает на телефонах и планшетах</p>
+                <div class="service-price">✓</div>
             </div>
             <div class="service-card">
-                <h3>Столы и стулья</h3>
-                <p>Обеденные группы, журнальные столики</p>
-                <div class="price">от 12 000 ₽</div>
-                <a href="#" class="btn">Заказать</a>
+                <h3>📞 Форма заявки</h3>
+                <p>Заявки приходят на почту и в Telegram</p>
+                <div class="service-price">✓</div>
+            </div>
+            <div class="service-card">
+                <h3>🌐 Домен + хостинг</h3>
+                <p>Домен .ru и хостинг на 12 месяцев включены</p>
+                <div class="service-price">✓</div>
             </div>
         </div>
     </div>
 
-    <div class="section">
-        <h2>О нас</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto;">Работаем с 2010 года. Используем только качественную древесину и европейскую фурнитуру. Делаем замер, проект, доставку и сборку. Гарантия 3 года.</p>
+    <!-- О НАС -->
+    <div id="about" class="section">
+        <h2>О компании</h2>
+        <div class="about-text">
+            <p>Мы работаем с 2015 года. Создаём сайты под ключ для малого и среднего бизнеса. Наша команда — это дизайнеры, верстальщики и программисты. Каждый проект получает уникальный дизайн, адаптивную вёрстку и полное техническое сопровождение.</p>
+            <p style="margin-top: 20px;">Срок изготовления: 7–10 дней. Работаем по всей России.</p>
+            <a href="#" class="btn">Обсудить проект</a>
+        </div>
     </div>
 
-    <div class="section">
+    <!-- КОНТАКТЫ + КАРТА -->
+    <div id="contacts" class="section">
         <h2>Контакты</h2>
-        <p style="text-align: center;">📞 8-999-123-45-67 | ✉️ woodstyle@mail.ru | г. Санкт-Петербург, ул. Мебельная, 15</p>
-        <p style="text-align: center; margin-top: 20px;">📍 Пн-Пт: 10:00–19:00, Сб: 11:00–17:00</p>
+        <div class="contact-grid">
+            <div class="contact-info">
+                <p>📞 <strong>Телефон:</strong> <a href="tel:+79110000000" style="color: #22c55e;">+7 (911) 000-00-00</a></p>
+                <p>✉️ <strong>Email:</strong> <a href="mailto:info@example.ru" style="color: #22c55e;">info@example.ru</a></p>
+                <p>📍 <strong>Адрес:</strong> г. Санкт-Петербург, Невский пр., д. 100</p>
+                <p>🕒 <strong>Режим работы:</strong> Пн–Пт: 10:00–19:00</p>
+                <p>💬 <strong>Telegram / WhatsApp:</strong> +7 (911) 000-00-00</p>
+            </div>
+            <div class="map">
+                <iframe 
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A647b8e9a8b8d8b8f0b1c2d3e4f5a6b7c&source=constructor" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class="contact">
-    <h3>Оставьте заявку на бесплатный замер</h3>
-    <p>Выезжаем в течение 24 часов</p>
-    <a href="#" class="btn" style="background: white; color: #3b5c3a;">Записаться →</a>
-</div>
-
+<!-- ПОДВАЛ -->
 <div class="footer">
-    <p>© 2026 Мастерская мебели «ДеревоСтиль». Все права защищены.</p>
+    <p>© 2026 Сайт под ключ — 42 000 ₽. Пример готового сайта.</p>
+    <p style="margin-top: 10px; font-size: 0.8rem;">Адаптивный дизайн | Навигационная панель | Карта проезда | Контактная форма</p>
 </div>
 
 </body>
