@@ -2,331 +2,557 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт-визитка | Пример за 42 000 ₽</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Дентал-Клиника | Современная стоматология</title>
+    <!-- Yandex Maps API (демо-ключ, для продакшена замените на свой) -->
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
         }
+
+        :root {
+            --primary: #0a6e6e;
+            --primary-dark: #075a5a;
+            --accent: #ffaa3c;
+            --light-bg: #f8f9fc;
+            --dark-text: #1e2a3a;
+            --gray: #5a6e7c;
+            --border: #e2e8f0;
+            --white: #ffffff;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.5;
-            color: #1e293b;
-            background: #f8fafc;
+            background: var(--white);
+            color: var(--dark-text);
+            scroll-behavior: smooth;
         }
-        /* Навигация */
-        .navbar {
-            background: #0f172a;
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .nav-links a:hover {
-            color: #22c55e;
-        }
-        /* Герой */
-        .hero {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .btn {
-            display: inline-block;
-            background: #22c55e;
-            color: #0f172a;
-            padding: 12px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1.5rem;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #16a34a;
-            transform: scale(1.02);
-        }
-        /* Контейнер */
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
-        /* Секции */
-        .section {
-            padding: 60px 0;
-            border-bottom: 1px solid #e2e8f0;
-            background: white;
+
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .section:nth-child(even) {
-            background: #f8fafc;
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
         }
-        .section h2 {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2rem;
-            color: #0f172a;
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
         }
-        /* Карточки */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
+        .logo span {
+            color: var(--accent);
         }
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            text-align: center;
-            border: 1px solid #e2e8f0;
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
-        .card h3 {
-            margin-bottom: 12px;
-            color: #0f172a;
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: var(--dark-text);
+            transition: 0.2s;
         }
-        .price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #22c55e;
-            margin: 12px 0;
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
         }
-        .about-text {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
+
+        .burger {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
         }
-        /* Контакты + карта */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
+
+        @media (max-width: 767px) {
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: white;
+                width: 80%;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                gap: 1.8rem;
+                box-shadow: 2px 0 20px rgba(0,0,0,0.1);
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+            .nav-links.active {
+                left: 0;
+            }
+            .burger {
+                display: block;
+            }
         }
-        .contact-info p {
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        .map {
-            height: 250px;
-            background: #e2e8f0;
-            border-radius: 16px;
-            overflow: hidden;
-        }
-        .map iframe {
-            width: 100%;
-            height: 100%;
-            border: 0;
-        }
-        /* Форма */
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 12px;
-            font-family: inherit;
-        }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        .btn-submit {
-            background: #22c55e;
-            color: #0f172a;
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.2s;
             border: none;
             cursor: pointer;
+        }
+        .btn-accent {
+            background: var(--accent);
+            color: #2c2c2c;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .grid-3, .services-grid, .portfolio-grid, .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.2s;
+            border: 1px solid var(--border);
+        }
+        .card img {
             width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: #eef2f6;
         }
-        /* Футер */
-        .footer {
-            background: #0f172a;
+        .card-body {
+            padding: 1.2rem;
+        }
+        .price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin: 2rem 0 1rem;
+            position: relative;
+        }
+
+        footer {
+            background: #1e2a3a;
+            color: #ccc;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .social-icons a {
             color: white;
-            text-align: center;
-            padding: 30px;
-            font-size: 0.85rem;
+            margin-right: 1rem;
+            font-size: 1.6rem;
         }
-        .social-links a {
+        .quick-contact {
+            background: var(--accent);
+            padding: 10px 20px;
+            border-radius: 30px;
+            color: #1e2a3a;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            font-size: 1rem;
+        }
+        .error-msg {
+            color: #e53e3e;
+            font-size: 0.8rem;
+        }
+        .success-msg {
+            background: #c6f6d5;
+            padding: 10px;
+            border-radius: 12px;
+            margin-top: 1rem;
+        }
+        .admin-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1100;
+        }
+        .admin-btn {
+            background: var(--dark-text);
+            border-radius: 50px;
+            padding: 10px 18px;
             color: white;
-            text-decoration: none;
-            margin: 0 10px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
-        /* Адаптив */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            max-width: 700px;
+            width: 90%;
+            border-radius: 32px;
+            padding: 2rem;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        #map {
+            height: 350px;
+            width: 100%;
+            border-radius: 24px;
+            margin: 1rem 0;
+        }
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
-            }
-            .nav-links {
-                justify-content: center;
-            }
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .section h2 {
-                font-size: 1.6rem;
-            }
+            .container { padding: 0 16px; }
+            .section-title { font-size: 1.6rem; }
+        }
+        .team-photo {
+            border-radius: 24px;
+            width: 100%;
+            max-width: 300px;
+            object-fit: cover;
+        }
+        .hero-bg {
+            background: linear-gradient(135deg, #e6f7f7 0%, #ffffff 100%);
+            border-radius: 48px;
+            padding: 2rem;
+            margin: 2rem 0;
         }
     </style>
 </head>
 <body>
 
-<!-- НАВИГАЦИЯ -->
-<div class="navbar">
-    <div class="logo">Бизнес-Название</div>
-    <div class="nav-links">
-        <a href="#">Главная</a>
-        <a href="#about">О нас</a>
-        <a href="#services">Услуги</a>
-        <a href="#portfolio">Портфолио</a>
-        <a href="#reviews">Отзывы</a>
-        <a href="#news">Новости</a>
-        <a href="#contacts">Контакты</a>
+<header>
+    <div class="container">
+        <div class="nav-bar">
+            <div class="logo">Дентал<span>Клиник</span></div>
+            <div class="burger" id="burgerBtn"><i class="fas fa-bars"></i></div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" data-page="home">Главная</a></li>
+                <li><a href="#" data-page="about">О компании</a></li>
+                <li><a href="#" data-page="services">Услуги</a></li>
+                <li><a href="#" data-page="portfolio">Кейсы</a></li>
+                <li><a href="#" data-page="reviews">Отзывы</a></li>
+                <li><a href="#" data-page="news">Новости</a></li>
+                <li><a href="#" data-page="contacts">Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<main id="app-root">
+    <!-- динамическая загрузка -->
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h4>ДенталКлиник</h4>
+                <p>Стоматология с заботой о вашей улыбке с 2010 года.</p>
+            </div>
+            <div>
+                <h4>Контакты</h4>
+                <p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p>
+                <p><i class="fas fa-envelope"></i> info@dentalclinic.ru</p>
+                <p><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Центральная, 15</p>
+            </div>
+            <div>
+                <h4>Соцсети</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-telegram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-vk"></i></a>
+                </div>
+                <button class="quick-contact" id="quickContactBtn"><i class="fas fa-headset"></i> Быстрая связь</button>
+            </div>
+        </div>
+        <div style="margin-top: 2rem; text-align: center;">© 2025 ДенталКлиник. Все права защищены.</div>
+    </div>
+</footer>
+
+<div class="admin-panel">
+    <div class="admin-btn" id="openAdminBtn">⚙️ Админ-панель</div>
+</div>
+<div id="adminModal" class="modal">
+    <div class="modal-content">
+        <h3>Администрирование сайта</h3>
+        <p>Управление услугами, новостями, отзывами (демо-режим, данные в localStorage)</p>
+        <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+            <button id="addServiceDemoBtn" class="btn btn-outline">➕ Добавить услугу</button>
+            <button id="addNewsDemoBtn" class="btn btn-outline">📰 Добавить новость</button>
+            <button id="approveReviewsBtn" class="btn btn-outline">⭐ Одобрить отзывы</button>
+        </div>
+        <button id="closeAdminBtn" class="btn">Закрыть</button>
     </div>
 </div>
 
-<!-- ГЛАВНЫЙ ЭКРАН -->
-<div class="hero">
-    <h1>Ваш бизнес в интернете</h1>
-    <p>Профессиональный сайт, который привлекает клиентов и работает на вас 24/7</p>
-    <a href="#contact-form" class="btn">Заказать звонок</a>
-</div>
+<script>
+    // ---------- ЗАМЕНА ВСЕХ ПУСТОТ НА РЕАЛИСТИЧНЫЕ СТОМАТОЛОГИЧЕСКИЕ ИЗОБРАЖЕНИЯ ----------
+    const defaultImages = {
+        service1: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=500&h=300&fit=crop",  // чистка
+        service2: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=500&h=300&fit=crop",  // лечение
+        service3: "https://images.unsplash.com/photo-1598255121255-43d3f3f8e08c?w=500&h=300&fit=crop",  // отбеливание
+        service4: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=500&h=300&fit=crop",  // импланты
+        service5: "https://images.unsplash.com/photo-1599305445671-ac291c95e2b4?w=500&h=300&fit=crop",  // виниры
+        service6: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&h=300&fit=crop",  // брекеты
+        portfolio1: "https://images.unsplash.com/photo-1562077981-211c3f0e9d64?w=500&h=300&fit=crop",
+        portfolio2: "https://images.unsplash.com/photo-1629909613654-28e377c37e3e?w=500&h=300&fit=crop",
+        portfolio3: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=500&h=300&fit=crop",
+        portfolio4: "https://images.unsplash.com/photo-1629909615184-74f495c2b5b5?w=500&h=300&fit=crop",
+        portfolio5: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=500&h=300&fit=crop",
+        portfolio6: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=500&h=300&fit=crop",
+        team1: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=400&h=300&fit=crop",
+        team2: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=300&fit=crop",
+        news: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=300&fit=crop",
+    };
 
-<div class="container">
-    <!-- О КОМПАНИИ -->
-    <div id="about" class="section">
-        <h2>О компании</h2>
-        <div class="about-text">
-            <p>Мы работаем с 2015 года. Создаём качественные продукты и ценим каждого клиента. Наша цель — ваш успех.</p>
-            <p style="margin-top: 15px;">✅ Индивидуальный подход<br>✅ Гарантия качества<br>✅ Поддержка 24/7</p>
-        </div>
-    </div>
+    let db = {
+        services: [
+            { id: 1, name: "Профессиональная чистка", description: "Ультразвуковая чистка + AirFlow", price: "3500 ₽", image: defaultImages.service1 },
+            { id: 2, name: "Лечение кариеса", description: "Композитная реставрация любой сложности", price: "4500 ₽", image: defaultImages.service2 },
+            { id: 3, name: "Отбеливание Zoom", description: "Система Philips Zoom 4", price: "15000 ₽", image: defaultImages.service3 },
+            { id: 4, name: "Имплантация", description: "Установка импланта Nobel Biocare", price: "35000 ₽", image: defaultImages.service4 },
+            { id: 5, name: "Виниры", description: "Керамические виниры, эстетика", price: "25000 ₽", image: defaultImages.service5 },
+            { id: 6, name: "Исправление прикуса", description: "Элайнеры / брекеты", price: "от 80000 ₽", image: defaultImages.service6 }
+        ],
+        portfolio: [
+            { id: 1, title: "Реставрация передних зубов", desc: "Сложный клинический случай, полное восстановление эстетики", img: defaultImages.portfolio1 },
+            { id: 2, title: "Имплантация с немедленной нагрузкой", desc: "Установка импланта и коронка за один день", img: defaultImages.portfolio2 },
+            { id: 3, title: "Отбеливание Zoom 4", desc: "Результат +10 тонов по шкале Вита", img: defaultImages.portfolio3 },
+            { id: 4, title: "Хирургическая операция", desc: "Удаление сложного ретинированного зуба", img: defaultImages.portfolio4 },
+            { id: 5, title: "Виниры на верхнюю челюсть", desc: "Голливудская улыбка без препарирования", img: defaultImages.portfolio5 },
+            { id: 6, title: "Детская стоматология", desc: "Лечение молочных зубов с весельем", img: defaultImages.portfolio6 }
+        ],
+        reviews: [
+            { id: 1, name: "Анна Петрова", city: "Москва", text: "Отличная клиника, аккуратно и быстро сделали чистку! Очень довольна сервисом.", approved: true, photo: "" },
+            { id: 2, name: "Иван Смирнов", city: "СПБ", text: "Ставил имплант, все прошло отлично, спасибо доктору. Цены адекватные.", approved: true, photo: "" },
+            { id: 3, name: "Мария Орлова", city: "Москва", text: "Самый вежливый персонал! Лечила кариес без боли.", approved: true, photo: "" }
+        ],
+        news: [
+            { id: 1, title: "Акция на отбеливание до 30 апреля", content: "Скидка 20% на систему Zoom. Успейте записаться! Также дарим уходовый набор.", date: "10.03.2025", slug: "akciya-otbelivanie", img: defaultImages.news },
+            { id: 2, title: "Новый врач-ортодонт", content: "Прием ведет доктор Смирнов А.А., стаж 12 лет. Исправление прикуса на элайнерах со скидкой.", date: "01.03.2025", slug: "novyj-vrach-ortodont", img: defaultImages.news }
+        ]
+    };
 
-    <!-- УСЛУГИ -->
-    <div id="services" class="section">
-        <h2>Наши услуги</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Услуга 1</h3>
-                <p>Описание услуги. Расскажите клиенту, что он получит.</p>
-                <div class="price">от 5 000 ₽</div>
+    function loadFromStorage() {
+        const stored = localStorage.getItem("dental_clinic_data");
+        if(stored) {
+            try{
+                const parsed = JSON.parse(stored);
+                if(parsed.services) db.services = parsed.services;
+                if(parsed.portfolio) db.portfolio = parsed.portfolio;
+                if(parsed.reviews) db.reviews = parsed.reviews;
+                if(parsed.news) db.news = parsed.news;
+            }catch(e){}
+        }
+        saveToStorage();
+    }
+    function saveToStorage() {
+        localStorage.setItem("dental_clinic_data", JSON.stringify({
+            services: db.services, portfolio: db.portfolio, reviews: db.reviews, news: db.news
+        }));
+    }
+    
+    let currentPage = "home";
+    const appRoot = document.getElementById("app-root");
+
+    function renderHome() {
+        const servicesPreview = db.services.slice(0,3);
+        const newsPreview = db.news.slice(0,2);
+        return `
+            <section class="container">
+                <div class="hero-bg">
+                    <h1 style="font-size: 2.5rem;">✨ Улыбка, которую вы заслуживаете</h1>
+                    <p style="font-size: 1.2rem; margin: 1rem 0;">Современные технологии, опытные врачи, индивидуальный подход</p>
+                    <a href="#" class="btn" data-nav="services">Записаться на прием →</a>
+                </div>
+                <h2 class="section-title">Наши преимущества</h2>
+                <div class="grid-3">
+                    <div class="card"><div class="card-body"><i class="fas fa-user-md fa-2x" style="color:var(--primary)"></i><h3>Опытные врачи</h3><p>Более 15 врачей высшей категории, кандидаты наук</p></div></div>
+                    <div class="card"><div class="card-body"><i class="fas fa-calendar-alt fa-2x" style="color:var(--primary)"></i><h3>Удобная запись</h3><p>Онлайн запись 24/7, напоминание о визите</p></div></div>
+                    <div class="card"><div class="card-body"><i class="fas fa-hand-holding-usd fa-2x" style="color:var(--primary)"></i><h3>Доступные цены</h3><p>Рассрочка и лечение по страховке ДМС</p></div></div>
+                </div>
+                <h2 class="section-title">Популярные услуги</h2>
+                <div class="services-grid">${servicesPreview.map(s => `<div class="card"><img src="${s.image}" alt="${s.name}" loading="lazy"><div class="card-body"><h3>${s.name}</h3><p>${s.description}</p><div class="price">${s.price}</div><button class="btn btn-outline order-service" data-name="${s.name}">Заказать услугу</button></div></div>`).join('')}</div>
+                <h2 class="section-title">Новости клиники</h2>
+                <div class="news-grid">${newsPreview.map(n => `<div class="card"><img src="${n.img || defaultImages.news}" alt="новость"><div class="card-body"><h3>${n.title}</h3><p>${n.content.substring(0,80)}...</p><small>${n.date}</small><br><a href="#" data-news-id="${n.id}" class="read-news">Читать далее →</a></div></div>`).join('')}</div>
+                <div style="text-align:center; margin: 2rem;"><button class="btn btn-accent" id="mainOrderBtn">Записаться на приём</button></div>
+            </section>
+        `;
+    }
+
+    function renderAbout() {
+        return `<div class="container">
+            <h2 class="section-title">О компании</h2>
+            <p><strong>📖 История:</strong> Клиника основана в 2010 году. Мы объединили опытных стоматологов и лучшее оборудование.</p>
+            <p><strong>🎯 Миссия:</strong> Делать стоматологию доступной и безболезненной. Заботимся о здоровье улыбки каждого.</p>
+            <p><strong>🏆 Достижения:</strong> премия "Лучшая стоматология Москвы 2023", более 10 000 благодарных пациентов.</p>
+            <div style="display:flex; gap: 1.5rem; flex-wrap:wrap; margin-top: 2rem;">
+                <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?w=400&h=300&fit=crop" class="team-photo" alt="Команда врачей">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=300&fit=crop" class="team-photo" alt="Стоматологический кабинет">
+                <img src="https://images.unsplash.com/photo-1629909615184-74f495c2b5b5?w=400&h=300&fit=crop" class="team-photo" alt="Современное оборудование">
             </div>
-            <div class="card">
-                <h3>Услуга 2</h3>
-                <p>Описание услуги. Расскажите клиенту, что он получит.</p>
-                <div class="price">от 10 000 ₽</div>
-            </div>
-            <div class="card">
-                <h3>Услуга 3</h3>
-                <p>Описание услуги. Расскажите клиенту, что он получит.</p>
-                <div class="price">от 15 000 ₽</div>
-            </div>
-        </div>
-    </div>
+        </div>`;
+    }
 
-    <!-- ПОРТФОЛИО -->
-    <div id="portfolio" class="section">
-        <h2>Портфолио</h2>
-        <div class="grid">
-            <div class="card"><h3>Проект 1</h3><p>Краткое описание выполненной работы.</p></div>
-            <div class="card"><h3>Проект 2</h3><p>Краткое описание выполненной работы.</p></div>
-            <div class="card"><h3>Проект 3</h3><p>Краткое описание выполненной работы.</p></div>
-        </div>
-    </div>
+    function renderServices() {
+        return `<div class="container"><h2 class="section-title">🦷 Услуги и цены</h2><div class="services-grid">${db.services.map(s => `<div class="card"><img src="${s.image}" alt="${s.name}"><div class="card-body"><h3>${s.name}</h3><p>${s.description}</p><div class="price">${s.price}</div><button class="btn btn-outline order-service" data-name="${s.name}">Заказать услугу</button></div></div>`).join('')}</div></div>`;
+    }
 
-    <!-- ОТЗЫВЫ -->
-    <div id="reviews" class="section">
-        <h2>Отзывы клиентов</h2>
-        <div class="grid">
-            <div class="card"><p>«Отличная работа! Всё сделали быстро и качественно. Рекомендую.»</p><strong>— Анна</strong></div>
-            <div class="card"><p>«Профессиональный подход. Спасибо за сотрудничество!»</p><strong>— Дмитрий</strong></div>
-            <div class="card"><p>«Лучшие специалисты. Буду обращаться ещё.»</p><strong>— Екатерина</strong></div>
-        </div>
-    </div>
+    function renderPortfolio() {
+        return `<div class="container"><h2 class="section-title">📸 Наши работы</h2><div class="portfolio-grid">${db.portfolio.map(p => `<div class="card"><img src="${p.img}" alt="${p.title}"><div class="card-body"><h3>${p.title}</h3><p>${p.desc}</p></div></div>`).join('')}</div></div>`;
+    }
 
-    <!-- НОВОСТИ -->
-    <div id="news" class="section">
-        <h2>Новости</h2>
-        <div class="grid">
-            <div class="card"><h3>Новость 1</h3><p>Краткое описание новости. Читать подробнее...</p></div>
-            <div class="card"><h3>Новость 2</h3><p>Краткое описание новости. Читать подробнее...</p></div>
-            <div class="card"><h3>Новость 3</h3><p>Краткое описание новости. Читать подробнее...</p></div>
-        </div>
-    </div>
+    function renderReviews() {
+        const approvedReviews = db.reviews.filter(r => r.approved);
+        return `<div class="container"><h2 class="section-title">⭐ Отзывы наших пациентов</h2><div id="reviewsList">${approvedReviews.map(r => `<div class="card" style="margin-bottom:1rem"><div class="card-body"><i class="fas fa-user-circle fa-2x" style="color:var(--primary)"></i> <strong>${r.name}</strong> (${r.city})<p>${r.text}</p>${r.photo ? `<img src="${r.photo}" width="50" style="border-radius:50%">` : ''}</div></div>`).join('')}</div><h3>📝 Оставить отзыв</h3><form id="addReviewForm"><div class="form-group"><input type="text" id="revName" placeholder="Ваше имя" required></div><div class="form-group"><input type="text" id="revCity" placeholder="Город"></div><div class="form-group"><textarea id="revText" placeholder="Ваш отзыв" rows="3" required></textarea></div><div class="form-group"><input type="text" id="revPhoto" placeholder="Ссылка на фото (опционально)"></div><button type="submit" class="btn">Отправить на модерацию</button></form></div>`;
+    }
 
-    <!-- КОНТАКТЫ + КАРТА + ФОРМА -->
-    <div id="contacts" class="section">
-        <h2>Контакты</h2>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <p>📞 <strong>Телефон:</strong> +7 (911) 123-45-67</p>
-                <p>✉️ <strong>Email:</strong> info@example.ru</p>
-                <p>📍 <strong>Адрес:</strong> г. Санкт-Петербург, ул. Центральная, д. 10</p>
-                <p>🕒 <strong>Режим работы:</strong> Пн–Пт: 10:00–19:00</p>
-                <p>💬 <strong>Telegram/WhatsApp:</strong> +7 (911) 123-45-67</p>
-            </div>
-            <div class="map">
-                <iframe src="https://yandex.ru/map-widget/v1/?ll=30.315868,59.939095&z=14&pt=30.315868,59.939095,pm2rdm&size=300,250" allowfullscreen></iframe>
-            </div>
-        </div>
+    function renderNewsList() {
+        return `<div class="container"><h2 class="section-title">📰 Новости и блог</h2><div class="news-grid">${db.news.map(n => `<div class="card"><img src="${n.img || defaultImages.news}" alt="новость"><div class="card-body"><h3>${n.title}</h3><p>${n.content.substring(0,100)}</p><small>${n.date}</small><br><a href="#" data-news-id="${n.id}" class="read-news">Подробнее →</a></div></div>`).join('')}</div></div>`;
+    }
+    
+    function renderSingleNews(id) {
+        const newsItem = db.news.find(n => n.id == id);
+        if(!newsItem) return "<div>Новость не найдена</div>";
+        return `<div class="container"><h2>${newsItem.title}</h2><img src="${newsItem.img || defaultImages.news}" style="width:100%; max-height:300px; object-fit:cover; border-radius:24px; margin:1rem 0;"><p>${newsItem.date}</p><p style="font-size:1.1rem;">${newsItem.content}</p><a href="#" data-page="news" class="btn btn-outline" style="margin-top:1rem;">← Назад к новостям</a></div>`;
+    }
+    
+    function renderContacts() {
+        return `<div class="container"><h2 class="section-title">📍 Контакты</h2><p><i class="fas fa-map-marker-alt"></i> Адрес: г. Москва, ул. Центральная, д.15</p><p><i class="fas fa-phone"></i> +7 (495) 123-45-67</p><p><i class="fas fa-envelope"></i> info@dentalclinic.ru</p><p>Режим работы: Пн-Сб 9:00 - 21:00, Вс 10:00 - 18:00</p><div id="map" style="height: 350px;"></div><h3>📧 Форма обратной связи</h3><form id="feedbackForm"><div class="form-group"><input type="text" id="fbName" placeholder="Ваше имя" required></div><div class="form-group"><input type="email" id="fbEmail" placeholder="Email" required></div><div class="form-group"><textarea id="fbMsg" placeholder="Сообщение" required></textarea></div><button type="submit" class="btn">Отправить</button><div id="fbResult"></div></form></div>`;
+    }
+    
+    async function navigateTo(page, param = null) {
+        currentPage = page;
+        if(page === 'home') appRoot.innerHTML = renderHome();
+        else if(page === 'about') appRoot.innerHTML = renderAbout();
+        else if(page === 'services') appRoot.innerHTML = renderServices();
+        else if(page === 'portfolio') appRoot.innerHTML = renderPortfolio();
+        else if(page === 'reviews') appRoot.innerHTML = renderReviews();
+        else if(page === 'news') appRoot.innerHTML = renderNewsList();
+        else if(page === 'news-single' && param) appRoot.innerHTML = renderSingleNews(param);
+        else if(page === 'contacts') { appRoot.innerHTML = renderContacts(); initMap(); }
+        attachPageEvents();
+        if(page === 'contacts' && window.ymaps) initMap();
+        document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.nav-links a[data-page="${page === 'news-single' ? 'news' : page}"]`);
+        if(activeLink) activeLink.classList.add('active');
+    }
 
-        <!-- ФОРМА ОБРАТНОЙ СВЯЗИ -->
-        <div id="contact-form" style="margin-top: 40px;">
-            <h3 style="text-align: center; margin-bottom: 20px;">Форма обратной связи</h3>
-            <form style="max-width: 500px; margin: 0 auto;">
-                <div class="form-group"><input type="text" placeholder="Ваше имя" required></div>
-                <div class="form-group"><input type="tel" placeholder="Телефон" required></div>
-                <div class="form-group"><textarea placeholder="Сообщение"></textarea></div>
-                <div class="form-group"><input type="submit" value="Отправить" class="btn btn-submit"></div>
-            </form>
-        </div>
-    </div>
-</div>
-
-<!-- ФУТЕР -->
-<div class="footer">
-    <p>© 2026 Ваша компания. Все права защищены.</p>
-    <div class="social-links">
-        <a href="#">Telegram</a> | <a href="#">WhatsApp</a> | <a href="#">VK</a>
-    </div>
-</div>
-
+    function attachPageEvents() {
+        document.querySelectorAll('.order-service').forEach(btn => {
+            btn.addEventListener('click', (e) => { let service = btn.dataset.name; showOrderModal(service); });
+        });
+        document.querySelectorAll('.read-news').forEach(link => {
+            link.addEventListener('click', (e) => { e.preventDefault(); let id = link.dataset.newsId; navigateTo('news-single', id); });
+        });
+        const mainOrder = document.getElementById('mainOrderBtn');
+        if(mainOrder) mainOrder.addEventListener('click', ()=>showOrderModal());
+        const revForm = document.getElementById('addReviewForm');
+        if(revForm) revForm.addEventListener('submit', (e) => { e.preventDefault(); 
+            const name = document.getElementById('revName').value, city = document.getElementById('revCity').value, text = document.getElementById('revText').value, photo = document.getElementById('revPhoto').value;
+            db.reviews.push({ id: Date.now(), name, city, text, approved: false, photo });
+            saveToStorage(); alert('Спасибо! Отзыв отправлен на модерацию.'); navigateTo('reviews'); 
+        });
+        const fbForm = document.getElementById('feedbackForm');
+        if(fbForm) fbForm.addEventListener('submit', (e) => { e.preventDefault(); 
+            alert('Сообщение отправлено на почту клиенту и заказчику (демо-режим)'); fbForm.reset();
+            document.getElementById('fbResult').innerHTML = '<div class="success-msg">✅ Успешно отправлено!</div>';
+        });
+    }
+    
+    function showOrderModal(serviceName = "") {
+        const modalHtml = `<div id="orderModalOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:2000; display:flex; align-items:center; justify-content:center;"><div style="background:white; max-width:500px; width:90%; border-radius:32px; padding:2rem;"><h3>📋 Запись на приём</h3><form id="orderForm"><div class="form-group"><input type="text" id="orderName" placeholder="Имя" required></div><div class="form-group"><input type="tel" id="orderPhone" placeholder="Телефон" required></div><div class="form-group"><select id="orderService"><option>${serviceName || 'Выберите услугу'}</option>${db.services.map(s=>`<option>${s.name}</option>`).join('')}</select></div><button class="btn" type="submit">Отправить заявку</button><button type="button" id="closeOrderModal" class="btn-outline" style="margin-left:10px;">Отмена</button></form></div></div>`;
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+        const form = document.getElementById('orderForm');
+        form.addEventListener('submit', (e) => { e.preventDefault(); alert('✅ Заявка отправлена! Скоро с вами свяжутся.'); document.getElementById('orderModalOverlay').remove(); });
+        document.getElementById('closeOrderModal').addEventListener('click',()=>document.getElementById('orderModalOverlay').remove());
+    }
+    
+    function initMap() { 
+        if(window.ymaps) { 
+            ymaps.ready(() => { 
+                var map = new ymaps.Map("map", { center: [55.751574, 37.573856], zoom: 13 }); 
+                var placemark = new ymaps.Placemark([55.751574, 37.573856], { hintContent: 'ДенталКлиник', balloonContent: 'Москва, ул. Центральная 15' }); 
+                map.geoObjects.add(placemark); 
+            }); 
+        } else { setTimeout(initMap, 500); } 
+    }
+    
+    // Admin 
+    function openAdminPanel() { document.getElementById('adminModal').style.display = 'flex'; }
+    document.getElementById('openAdminBtn')?.addEventListener('click', openAdminPanel);
+    document.getElementById('closeAdminBtn')?.addEventListener('click',()=>document.getElementById('adminModal').style.display = 'none');
+    document.getElementById('addServiceDemoBtn')?.addEventListener('click',()=>{ let newName = prompt("Название услуги"); if(newName){ db.services.push({ id: Date.now(), name: newName, description: "Новая услуга", price: "уточняется", image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=500&h=300&fit=crop"}); saveToStorage(); navigateTo('services'); alert("Услуга добавлена"); } });
+    document.getElementById('addNewsDemoBtn')?.addEventListener('click',()=>{ let title = prompt("Заголовок новости"); if(title){ db.news.push({ id: Date.now(), title: title, content: "Текст новости", date: new Date().toLocaleDateString(), slug: title.replace(/\s/g,'-'), img: defaultImages.news }); saveToStorage(); navigateTo('news'); alert("Новость добавлена"); } });
+    document.getElementById('approveReviewsBtn')?.addEventListener('click',()=>{ const pending = db.reviews.filter(r=>!r.approved); if(pending.length===0) alert("Нет отзывов на модерации"); else { pending.forEach(r=>r.approved=true); saveToStorage(); alert(`✅ Одобрено ${pending.length} отзывов`); navigateTo('reviews'); } });
+    
+    document.querySelectorAll('.nav-links a').forEach(link => { link.addEventListener('click',(e)=>{ e.preventDefault(); const page = link.dataset.page; if(page) navigateTo(page); if(page==='contacts') setTimeout(initMap,100); document.getElementById('navLinks')?.classList.remove('active'); }); });
+    document.getElementById('burgerBtn')?.addEventListener('click',()=>{ document.getElementById('navLinks')?.classList.toggle('active'); });
+    document.getElementById('quickContactBtn')?.addEventListener('click',()=> showOrderModal());
+    
+    loadFromStorage();
+    navigateTo('home');
+    if(window.ymaps) setTimeout(initMap, 1000);
+</script>
 </body>
 </html>
