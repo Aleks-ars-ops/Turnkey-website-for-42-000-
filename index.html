@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт под ключ — 42 000 ₽ | Пример работы</title>
+    <title>Сайт под ключ | 42 000 ₽ — пример работы</title>
     <style>
         * {
             margin: 0;
@@ -11,201 +11,227 @@
             box-sizing: border-box;
         }
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f0f2f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #1e293b;
+            background: #f8fafc;
         }
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
-        .header {
-            background: #1a1a2e;
+        /* Герой */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             text-align: center;
-            padding: 60px 20px;
+            padding: 80px 24px;
         }
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 16px;
         }
-        .price {
-            font-size: 2.5rem;
-            color: #4CAF50;
-            font-weight: bold;
+        .hero .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #22c55e;
             margin: 20px 0;
         }
-        .subtitle {
+        .hero .sub {
             font-size: 1.2rem;
             opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
         .btn {
             display: inline-block;
-            background: #4CAF50;
+            background: #22c55e;
             color: white;
-            padding: 14px 35px;
-            border-radius: 30px;
+            padding: 14px 36px;
+            border-radius: 40px;
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 25px;
-            transition: 0.3s;
+            font-weight: 600;
+            margin-top: 32px;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
-            background: #45a049;
+            background: #16a34a;
+            transform: scale(1.02);
         }
+        /* Секции */
         .section {
-            background: white;
-            padding: 50px 0;
-            border-bottom: 1px solid #eee;
+            padding: 64px 0;
+            border-bottom: 1px solid #e2e8f0;
         }
-        .section-gray {
-            background: #f9f9f9;
+        .section:nth-child(even) {
+            background: white;
         }
         .section h2 {
             text-align: center;
-            margin-bottom: 40px;
             font-size: 2rem;
-            color: #1a1a2e;
+            margin-bottom: 48px;
+            color: #0f172a;
         }
         .grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
         }
         .card {
             background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            flex: 1;
-            min-width: 250px;
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: 0.2s;
         }
-        .card .icon {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+        }
+        .icon {
+            font-size: 2.8rem;
+            margin-bottom: 16px;
         }
         .card h3 {
-            margin-bottom: 10px;
-            color: #1a1a2e;
+            margin-bottom: 12px;
+            color: #0f172a;
         }
         .list {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
         }
         .list li {
             list-style: none;
-            margin-bottom: 12px;
-            padding-left: 25px;
+            margin-bottom: 16px;
+            padding-left: 28px;
             position: relative;
         }
         .list li::before {
             content: "✓";
-            color: #4CAF50;
+            color: #22c55e;
             font-weight: bold;
+            font-size: 1.2rem;
             position: absolute;
             left: 0;
+            top: 0;
         }
         .faq-item {
-            margin-bottom: 20px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid #e2e8f0;
         }
         .faq-item strong {
-            color: #1a1a2e;
+            color: #0f172a;
+            font-size: 1.05rem;
         }
         .contact {
-            background: #1a1a2e;
+            background: #0f172a;
             color: white;
             text-align: center;
-            padding: 50px 0;
+            padding: 56px 24px;
         }
         .contact p {
-            margin: 10px 0;
+            margin: 12px 0;
             font-size: 1.1rem;
         }
         .footer {
             text-align: center;
-            padding: 25px;
+            padding: 28px;
             font-size: 0.85rem;
-            color: #777;
+            color: #64748b;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #22c55e;
+            margin-top: 16px;
+        }
+        .btn-outline:hover {
+            background: #22c55e;
+            color: white;
         }
         @media (max-width: 768px) {
-            .header h1 { font-size: 1.6rem; }
-            .price { font-size: 1.8rem; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero .price { font-size: 2.2rem; }
             .section h2 { font-size: 1.5rem; }
+            .grid { gap: 20px; }
         }
     </style>
 </head>
 <body>
 
-<div class="header">
-    <h1>Сайт под ключ</h1>
-    <div class="price">42 000 ₽</div>
-    <div class="subtitle">Готовый работающий сайт за 7–10 дней</div>
-    <a href="#contact" class="btn">Заказать такой же</a>
+<div class="hero">
+    <div class="container">
+        <h1>Сайт под ключ</h1>
+        <div class="price">42 000 ₽</div>
+        <div class="sub">Готовый работающий сайт за 7–10 дней<br>Домен и хостинг на год — уже включены</div>
+        <a href="#contact" class="btn">Заказать такой же →</a>
+    </div>
 </div>
 
 <div class="section">
     <div class="container">
-        <h2>Что входит в цену</h2>
+        <h2>Что вы получите</h2>
         <div class="grid">
             <div class="card">
                 <div class="icon">🎨</div>
                 <h3>Уникальный дизайн</h3>
-                <p>Разработка с нуля под ваш бизнес. Не шаблон.</p>
+                <p>Не шаблон, не конструктор. Разработка с нуля под ваш бизнес.</p>
             </div>
             <div class="card">
                 <div class="icon">📱</div>
-                <h3>Адаптив</h3>
-                <p>Корректно отображается на телефонах, планшетах и компьютерах.</p>
+                <h3>Адаптация под телефон</h3>
+                <p>Сайт идеально выглядит на телефонах, планшетах и компьютерах.</p>
             </div>
             <div class="card">
                 <div class="icon">📞</div>
-                <h3>Форма заявки</h3>
-                <p>Сообщения от клиентов приходят на почту и в Telegram.</p>
+                <h3>Форма заявок</h3>
+                <p>Заявки от клиентов приходят на вашу почту и в Telegram.</p>
             </div>
             <div class="card">
                 <div class="icon">🌐</div>
                 <h3>Домен .ru на год</h3>
-                <p>Красивое имя сайта (ваше-имя.ru) — уже включено.</p>
+                <p>Красивое имя сайта (например, vashe-imya.ru) — уже в подарок.</p>
             </div>
             <div class="card">
                 <div class="icon">☁️</div>
                 <h3>Хостинг на год</h3>
-                <p>Сайт будет работать 24/7 — оплачено на год вперёд.</p>
+                <p>Сайт работает 24/7. Всё оплачено на год вперёд.</p>
             </div>
             <div class="card">
                 <div class="icon">📘</div>
                 <h3>Инструкция + поддержка</h3>
-                <p>Расскажу, как менять текст и фото. 4 дня помогаю бесплатно.</p>
+                <p>Научу менять текст и фото. 4 дня помогаю бесплатно.</p>
             </div>
         </div>
     </div>
 </div>
 
-<div class="section section-gray">
+<div class="section">
     <div class="container">
-        <h2>Пример внешнего вида</h2>
+        <h2>Как это выглядит</h2>
         <div class="grid">
             <div class="card">
                 <div class="icon">🏠</div>
                 <h3>Главный экран</h3>
-                <p>Яркий заголовок, цена, кнопка заказа — всё как на этом сайте.</p>
+                <p>Яркий заголовок, ваше уникальное предложение, кнопка заказа.</p>
             </div>
             <div class="card">
                 <div class="icon">📋</div>
-                <h3>Блок с услугами</h3>
-                <p>Расскажете о своих товарах или услугах — я сверстаю.</p>
+                <h3>Услуги или товары</h3>
+                <p>Расскажете о том, что продаёте — я сверстаю аккуратные карточки.</p>
             </div>
             <div class="card">
                 <div class="icon">📞</div>
                 <h3>Контакты и карта</h3>
-                <p>Телефон, email, адрес, схема проезда — всё будет.</p>
+                <p>Телефон, email, адрес, схема проезда — всё на месте.</p>
             </div>
         </div>
-        <p style="text-align: center; margin-top: 30px; color: #555;">Вы получите такой же стиль, но с вашими текстами и фотографиями.</p>
+        <p style="text-align: center; margin-top: 36px; color: #334155;">Вы получите такой же стиль, но с вашими текстами и фотографиями</p>
     </div>
 </div>
 
@@ -219,19 +245,23 @@
             </div>
             <div class="faq-item">
                 <strong>❓ Какая предоплата?</strong><br>
-                ➜ 100% после того, как одобрите готовый сайт. Сначала делаю — потом вы платите.
+                ➜ 100% после того, как вы одобрите готовый сайт. Сначала делаю — потом вы платите.
             </div>
             <div class="faq-item">
                 <strong>❓ Что через год с хостингом?</strong><br>
-                ➜ Хостинг закончится. Я помогу продлить (примерно 4 000 ₽/год) или вы сделаете это сами по инструкции.
+                ➜ Хостинг закончится. Я помогу продлить (около 4 000 ₽/год) или вы сделаете это сами по инструкции.
             </div>
             <div class="faq-item">
-                <strong>❓ Нужен срочно?</strong><br>
+                <strong>❓ Нужно срочно?</strong><br>
                 ➜ +30% к стоимости — сделаю за 3–4 дня.
             </div>
             <div class="faq-item">
                 <strong>❓ А если нужен интернет-магазин?</strong><br>
-                ➜ Это другой проект. Цена от 50 000 ₽, срок 14–21 день. Есть пример в портфолио.
+                ➜ Это отдельный проект. Цена от 50 000 ₽, срок 14–21 день. Есть пример в портфолио.
+            </div>
+            <div class="faq-item">
+                <strong>❓ Сколько страниц будет?</strong><br>
+                ➜ До 5 страниц (Главная, Услуги, О нас, Контакты, Отзывы). Этого достаточно для 99% бизнесов.
             </div>
         </div>
     </div>
@@ -243,7 +273,7 @@
         <p>📞 8-911-287-06-94 (звонок, Telegram, WhatsApp)</p>
         <p>✉️ aleksa.romanyuk31@gmail.com</p>
         <p style="margin-top: 20px;">Напишите — отвечу в течение 20 минут</p>
-        <a href="https://aleks-ars-ops.github.io/PORTFOLLIO1/" target="_blank" style="color: #4CAF50; display: inline-block; margin-top: 20px;">→ Посмотреть полное портфолио ←</a>
+        <a href="https://aleks-ars-ops.github.io/PORTFOLLIO1/" target="_blank" class="btn btn-outline">→ Посмотреть полное портфолио ←</a>
     </div>
 </div>
 
