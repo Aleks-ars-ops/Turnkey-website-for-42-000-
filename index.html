@@ -199,14 +199,6 @@
             text-decoration: none;
             margin: 0 10px;
         }
-        .success-message {
-            background: #22c55e;
-            color: white;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -327,27 +319,26 @@
         <h2>Контакты</h2>
         <div class="contact-grid">
             <div class="contact-info">
-                <p>📞 <strong>Телефон:</strong> +7 (812) 123-45-67</p>
+                <p>📞 <strong>Телефон:</strong> +7 (999) 123-45-67</p>
                 <p>✉️ <strong>Email:</strong> info@dentalklinik.ru</p>
                 <p>📍 <strong>Адрес:</strong> г. Санкт-Петербург, ул. Невская, д. 25</p>
                 <p>🕒 <strong>Режим работы:</strong> Пн–Вс: 9:00–21:00</p>
-                <p>💬 <strong>Telegram/WhatsApp:</strong> +7 (812) 123-45-67</p>
+                <p>💬 <strong>Telegram/WhatsApp:</strong> +7 (999) 123-45-67</p>
             </div>
             <div class="map">
                 <iframe src="https://yandex.ru/map-widget/v1/?ll=30.315868,59.939095&z=14&pt=30.315868,59.939095,pm2rdm&size=300,250" allowfullscreen></iframe>
             </div>
         </div>
 
-        <!-- ФОРМА ЗАПИСИ (РАБОТАЕТ) -->
         <div id="appointment-form" style="margin-top: 50px; background: #f1f5f9; padding: 30px; border-radius: 24px;">
             <h3 style="text-align: center; margin-bottom: 25px; color: #0f172a;">📝 Запись на приём</h3>
-            <form id="contactForm" style="max-width: 600px; margin: 0 auto;" method="POST">
+            <form id="contactForm" style="max-width: 600px; margin: 0 auto;">
                 <div class="form-row">
-                    <div class="form-group"><input type="text" id="name" name="name" placeholder="Ваше имя" required></div>
-                    <div class="form-group"><input type="tel" id="phone" name="phone" placeholder="Телефон" required></div>
+                    <div class="form-group"><input type="text" id="name" placeholder="Ваше имя" required></div>
+                    <div class="form-group"><input type="tel" id="phone" placeholder="Телефон" required></div>
                 </div>
                 <div class="form-group">
-                    <select id="service" name="service">
+                    <select id="service">
                         <option value="">Выберите услугу</option>
                         <option>Профессиональная чистка (4 500 ₽)</option>
                         <option>Лечение кариеса (3 500 ₽)</option>
@@ -355,91 +346,24 @@
                         <option>Консультация врача</option>
                     </select>
                 </div>
-                <div class="form-group"><input type="text" id="date" name="date" placeholder="Удобная дата и время (например, 20 мая в 15:00)"></div>
-                <div class="form-group"><textarea id="message" name="message" placeholder="Дополнительные пожелания"></textarea></div>
+                <div class="form-group"><input type="text" id="date" placeholder="Удобная дата и время"></div>
+                <div class="form-group"><textarea id="message" placeholder="Дополнительные пожелания"></textarea></div>
                 <div class="checkbox-group">
                     <input type="checkbox" id="privacy" required>
                     <label for="privacy">Я согласен на обработку персональных данных</label>
                 </div>
-                <div class="form-group"><input type="submit" value="Записаться на приём" class="btn" style="width: 100%; margin-top: 10px;"></div>
-                <div id="formStatus" style="margin-top: 15px; text-align: center;"></div>
+                <div class="form-group"><input type="button" value="Записаться на приём" class="btn" style="width: 100%; margin-top: 10px;" onclick="alert('В реальном сайте заявки будут отправляться на вашу почту и Telegram. Сейчас это демо-версия.')"></div>
             </form>
         </div>
     </div>
 </div>
 
 <div class="footer">
-    <p>© 2026 ДенталКлиник. Стоматология в Санкт-Петербурге. Все права защищены.</p>
-    <p style="margin-top: 10px; font-size: 0.75rem;"><a href="#" style="color: #22c55e;">Политика конфиденциальности</a></p>
+    <p>© 2026 ДенталКлиник. Все права защищены.</p>
     <div class="social-links">
         <a href="#">Telegram</a> | <a href="#">WhatsApp</a> | <a href="#">VK</a>
     </div>
 </div>
-
-<script>
-    // Отправка формы на твою почту через FormSubmit (бесплатно)
-    const form = document.getElementById('contactForm');
-    const statusDiv = document.getElementById('formStatus');
-    
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Простая валидация
-            const name = document.getElementById('name').value.trim();
-            const phone = document.getElementById('phone').value.trim();
-            const privacy = document.getElementById('privacy').checked;
-            
-            if (!name || !phone) {
-                statusDiv.innerHTML = '<div style="background: #ef4444; color: white; padding: 10px; border-radius: 8px;">❌ Пожалуйста, заполните имя и телефон</div>';
-                return;
-            }
-            
-            if (!privacy) {
-                statusDiv.innerHTML = '<div style="background: #ef4444; color: white; padding: 10px; border-radius: 8px;">❌ Подтвердите согласие на обработку данных</div>';
-                return;
-            }
-            
-            statusDiv.innerHTML = '<div style="background: #22c55e; color: white; padding: 10px; border-radius: 8px;">⏳ Отправка...</div>';
-            
-            // Собираем данные
-            const service = document.getElementById('service').value;
-            const date = document.getElementById('date').value;
-            const message = document.getElementById('message').value;
-            
-            const body = `Имя: ${name}\nТелефон: ${phone}\nУслуга: ${service}\nЖелаемая дата: ${date}\nСообщение: ${message}`;
-            
-            // Отправка через FormSubmit (твоя почта)
-            fetch('https://formsubmit.co/ajax/aleksa.romanyuk31@gmail.com', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    name: name,
-                    phone: phone,
-                    service: service,
-                    date: date,
-                    message: message,
-                    _subject: 'Новая запись на приём - ДенталКлиник'
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success === "success") {
-                    statusDiv.innerHTML = '<div style="background: #22c55e; color: white; padding: 10px; border-radius: 8px;">✅ Спасибо! Мы свяжемся с вами в ближайшее время.</div>';
-                    form.reset();
-                } else {
-                    statusDiv.innerHTML = '<div style="background: #ef4444; color: white; padding: 10px; border-radius: 8px;">❌ Ошибка. Пожалуйста, позвоните нам по телефону.</div>';
-                }
-            })
-            .catch(error => {
-                statusDiv.innerHTML = '<div style="background: #ef4444; color: white; padding: 10px; border-radius: 8px;">❌ Ошибка отправки. Пожалуйста, позвоните нам.</div>';
-            });
-        });
-    }
-</script>
 
 </body>
 </html>
