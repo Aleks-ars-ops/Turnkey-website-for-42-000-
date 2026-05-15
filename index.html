@@ -3,341 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт-визитка | Пример за 42 000 ₽</title>
+    <title>Техническое задание | Сайт под ключ за 42 000 ₽</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.5;
             color: #1e293b;
-            background: #f8fafc;
+            background: #f1f5f9;
+            padding: 40px 20px;
         }
-        .navbar {
-            background: #0f172a;
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-        }
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .nav-links a:hover {
-            color: #22c55e;
-        }
-        .hero {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .btn {
-            display: inline-block;
-            background: #22c55e;
-            color: #0f172a;
-            padding: 12px 28px;
-            border-radius: 40px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1.5rem;
-            transition: 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background: #16a34a;
-            transform: scale(1.02);
-        }
+
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-        .section {
-            padding: 60px 0;
-            border-bottom: 1px solid #e2e8f0;
             background: white;
+            border-radius: 24px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            padding: 40px;
         }
-        .section:nth-child(even) {
-            background: #f8fafc;
-        }
-        .section h2 {
-            text-align: center;
-            margin-bottom: 40px;
+
+        h1 {
             font-size: 2rem;
             color: #0f172a;
+            margin-bottom: 8px;
         }
+
+        .badge {
+            background: #22c55e;
+            color: white;
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #0f172a;
+            margin: 30px 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #22c55e;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            color: #0f172a;
+            margin: 20px 0 10px 0;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            gap: 20px;
+            margin: 20px 0;
         }
+
         .card {
-            background: white;
-            padding: 25px;
+            background: #f8fafc;
             border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            text-align: center;
+            padding: 20px;
             border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
         }
-        .card-img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 15px;
-        }
-        .card h3 {
-            margin-bottom: 12px;
-            color: #0f172a;
-        }
-        .card p {
-            flex-grow: 1;
-        }
-        .price {
-            font-size: 1.5rem;
-            font-weight: bold;
+
+        .card h4 {
             color: #22c55e;
-            margin: 15px 0 5px;
-        }
-        .old-price {
-            text-decoration: line-through;
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-        .about-text {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
-        }
-        .contact-info p {
             margin-bottom: 12px;
             font-size: 1.1rem;
         }
-        .map {
-            height: 250px;
-            background: #e2e8f0;
-            border-radius: 16px;
-            overflow: hidden;
+
+        ul, .list {
+            padding-left: 20px;
+            margin: 10px 0;
         }
-        .map iframe {
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        table {
             width: 100%;
-            height: 100%;
-            border: 0;
+            border-collapse: collapse;
+            margin: 20px 0;
         }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group input, .form-group textarea {
-            width: 100%;
+
+        th, td {
+            border: 1px solid #e2e8f0;
             padding: 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 12px;
-            font-family: inherit;
+            text-align: left;
+            vertical-align: top;
         }
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
+
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
         }
-        .footer {
-            background: #0f172a;
+
+        .price-block {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
-            text-align: center;
             padding: 30px;
-            font-size: 0.85rem;
+            border-radius: 20px;
+            margin: 30px 0;
+            text-align: center;
         }
-        .social-links a {
+
+        .price-block .big-price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #22c55e;
+        }
+
+        .stage {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .stage-number {
+            background: #22c55e;
             color: white;
-            text-decoration: none;
-            margin: 0 10px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
         }
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                text-align: center;
+
+        .stage-content {
+            flex: 1;
+        }
+
+        hr {
+            margin: 30px 0;
+            border: none;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 30px;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 20px;
             }
-            .nav-links {
-                justify-content: center;
+            h1 {
+                font-size: 1.5rem;
             }
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .section h2 {
-                font-size: 1.6rem;
+            .price-block .big-price {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-
-<div class="navbar">
-    <div class="logo">Бизнес-Название</div>
-    <div class="nav-links">
-        <a href="#">Главная</a>
-        <a href="#about">О нас</a>
-        <a href="#services">Услуги</a>
-        <a href="#portfolio">Портфолио</a>
-        <a href="#reviews">Отзывы</a>
-        <a href="#news">Новости</a>
-        <a href="#contacts">Контакты</a>
-    </div>
-</div>
-
-<div class="hero">
-    <h1>Ваш бизнес в интернете</h1>
-    <p>Профессиональный сайт, который привлекает клиентов и работает на вас 24/7</p>
-    <a href="#contact-form" class="btn">Записаться на приём</a>
-</div>
-
 <div class="container">
-    <div id="about" class="section">
-        <h2>О компании</h2>
-        <div class="about-text">
-            <p>Мы работаем с 2015 года. Создаём качественные продукты и ценим каждого клиента. Наша цель — ваш успех.</p>
-            <p style="margin-top: 15px;">✅ Индивидуальный подход<br>✅ Гарантия качества<br>✅ Поддержка 24/7</p>
-        </div>
+    <h1>📄 Техническое задание (ТЗ)</h1>
+    <div class="badge">Сайт под ключ — 42 000 ₽</div>
+    <p><strong>Заказчик:</strong> __________________ <br>
+    <strong>Исполнитель:</strong> Александра, веб-разработчик<br>
+    <strong>Дата составления:</strong> 15 мая 2026<br>
+    <strong>Общий срок:</strong> 10–14 рабочих дней</p>
+
+    <!-- 1. Цель проекта -->
+    <h2>🎯 1. Цель проекта</h2>
+    <p>Разработать полноценный, адаптивный, функциональный сайт, который заказчик сможет самостоятельно наполнять контентом. Сайт должен работать на ПК, планшетах и смартфонах, содержать все необходимые разделы для бизнеса.</p>
+
+    <!-- 2. Состав разделов -->
+    <h2>📚 2. Состав разделов (страниц)</h2>
+    <div class="grid">
+        <div class="card"><h4>🏠 Главная</h4>Кратко о компании, преимущества, призыв к действию, последние услуги и новости</div>
+        <div class="card"><h4>ℹ️ О компании</h4>История, миссия, достижения, фото команды</div>
+        <div class="card"><h4>🛠️ Услуги / Товары</h4>До 10 позиций с описанием и ценой. Возможность добавить свои</div>
+        <div class="card"><h4>📌 Портфолио / Кейсы</h4>До 6 примеров работ: фото + описание</div>
+        <div class="card"><h4>⭐ Отзывы</h4>Отзывы клиентов + форма добавления с модерацией</div>
+        <div class="card"><h4>📰 Новости / Блог</h4>Лента новостей, каждая новость на отдельной странице</div>
+        <div class="card"><h4>📍 Контакты</h4>Адрес, телефон, e-mail, режим работы, карта, форма обратной связи</div>
     </div>
 
-    <!-- ПОПУЛЯРНЫЕ УСЛУГИ (ВЫРОВНЕНЫ) -->
-    <div id="services" class="section">
-        <h2>Популярные услуги</h2>
-        <div class="grid">
-            <div class="card">
-                <img class="card-img" src="https://avatars.mds.yandex.net/get-entity_search/5509992/1262399022/S600xU_2x" alt="Профессиональная чистка">
-                <h3>Профессиональная чистка</h3>
-                <p>Комплексная гигиена полости рта.</p>
-                <div class="price">4 500 ₽</div>
-            </div>
-            <div class="card">
-                <img class="card-img" src="https://scorpiondent.ru/wp-content/uploads/2025/09/Rectangle-745-2.webp" alt="Лечение кариеса">
-                <h3>Лечение кариеса</h3>
-                <p>Качественное лечение с гарантией.</p>
-                <div class="price">3 500 ₽</div>
-            </div>
-            <div class="card">
-                <img class="card-img" src="https://avatars.mds.yandex.net/i?id=8361407636ce9e4d340dfdd489335ca2193dde32-4246574-images-thumbs&n=13" alt="Отбеливание Zoom">
-                <h3>Отбеливание Zoom</h3>
-                <p>Безопасное отбеливание за 1 час.</p>
-                <div class="price">15 000 ₽</div>
-            </div>
-        </div>
+    <!-- 3. Функциональные требования -->
+    <h2>⚙️ 3. Функциональные требования</h2>
+    <ul>
+        <li><strong>Адаптивный дизайн</strong> — корректное отображение на ПК (≥1200px), планшетах (768–1199px) и телефонах (≤767px).</li>
+        <li><strong>Навигационная панель</strong> — меню с переходами по разделам; на телефонах — бургер-меню.</li>
+        <li><strong>Подвал (футер)</strong> — контакты, ссылки на соцсети (Telegram, WhatsApp, VK), кнопка быстрой связи.</li>
+        <li><strong>Формы</strong>:
+            <ul>
+                <li>Форма обратной связи (имя, телефон/e-mail, сообщение) — отправка на почту клиенту и заказчику.</li>
+                <li>Форма заказа услуги (имя, телефон, выбор услуги).</li>
+                <li>Форма добавления отзыва (имя, город, текст, фото) — публикация после одобрения в админке.</li>
+            </ul>
+        </li>
+        <li><strong>Карта</strong> — Яндекс.Карты с отметкой офиса, возможностью построить маршрут.</li>
+        <li><strong>Административная панель</strong> — заказчик может самостоятельно менять текст, фото, добавлять новости и услуги, управлять отзывами.</li>
+        <li><strong>Базовая SEO</strong> — настройка заголовков, мета-тегов (description, keywords), alt для изображений, ЧПУ-ссылки.</li>
+    </ul>
+
+    <!-- 4. Технологии и инструменты (чтобы уложиться в бюджет) -->
+    <h2>🛠️ 4. Технологии и инструменты</h2>
+    <table>
+        <thead>
+            <tr><th>Компонент</th><th>Выбор</th><th>Почему (бюджет)</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>CMS (движок)</td><td>WordPress</td><td>Бесплатно, клиенту понятно, не надо программировать админку с нуля</td></tr>
+            <tr><td>Хостинг</td><td>Beget / Timeweb / Reg.ru</td><td>от 300 ₽/мес — входит в бюджет на первый год</td></tr>
+            <tr><td>Домен</td><td>.ru или .рф</td><td>около 200 ₽/год — включен в стоимость</td></tr>
+            <tr><td>Тема/шаблон</td><td>Astra или Hello Elementor</td><td>Бесплатные, лёгкие, быстрые</td></tr>
+            <tr><td>Конструктор страниц</td><td>Elementor Free</td><td>Визуальный редактор, чтобы вы сами могли править сайт</td></tr>
+            <tr><td>Карта</td><td>Яндекс.Карты API</td><td>Бесплатно</td></tr>
+            <tr><td>Формы</td><td>Contact Form 7 / WPForms Lite</td><td>Бесплатно, отправка на e-mail</td></tr>
+            <tr><td>SEO</td><td>Yoast SEO</td><td>Бесплатный плагин, настройка мета-тегов</td></tr>
+        </tbody>
+    </table>
+    <p><strong>💰 Сервисные расходы (на год):</strong> домен 200 ₽ + хостинг ~3600 ₽ = 3 800 ₽.<br>
+    <strong>✅ Чистый доход разработчика:</strong> 42 000 − 3 800 = 38 200 ₽.</p>
+
+    <!-- 5. Что заказчик получает в итоге -->
+    <h2>🎁 5. Что получит заказчик</h2>
+    <ul>
+        <li>✔️ Готовый работающий сайт на WordPress с доступом в админку</li>
+        <li>✔️ Домен .ru на год (подарок)</li>
+        <li>✔️ Хостинг на год (подарок)</li>
+        <li>✔️ Административная панель — можно самому менять текст, фото, добавлять новости и отзывы</li>
+        <li>✔️ Подробная инструкция: как добавить новость, как изменить фото и контакты</li>
+        <li>✔️ 4 дня бесплатной технической поддержки после запуска</li>
+        <li>✔️ Исходные файлы и доступы к хостингу</li>
+    </ul>
+
+    <!-- 6. Этапы работ и сроки -->
+    <h2>📅 6. Этапы работ и сроки</h2>
+    <div class="stage"><div class="stage-number">1</div><div class="stage-content"><strong>Установка и настройка WordPress</strong> — установка темы, плагинов, базовых настроек (1 день).</div></div>
+    <div class="stage"><div class="stage-number">2</div><div class="stage-content"><strong>Создание структуры</strong> — создание страниц, меню, настройка ЧПУ (1 день).</div></div>
+    <div class="stage"><div class="stage-number">3</div><div class="stage-content"><strong>Дизайн и вёрстка главной страницы</strong> — уникальный дизайн под бренд клиента (2 дня).</div></div>
+    <div class="stage"><div class="stage-number">4</div><div class="stage-content"><strong>Дизайн внутренних страниц</strong> — О компании, Услуги, Портфолио, Отзывы, Новости, Контакты (3 дня).</div></div>
+    <div class="stage"><div class="stage-number">5</div><div class="stage-content"><strong>Настройка функционала</strong> — формы, карта, соцсети, футер (1 день).</div></div>
+    <div class="stage"><div class="stage-number">6</div><div class="stage-content"><strong>Адаптивная верстка</strong> — проверка и доводка под телефоны и планшеты (1 день).</div></div>
+    <div class="stage"><div class="stage-number">7</div><div class="stage-content"><strong>SEO-настройка</strong> — мета-теги, alt, заголовки, Yoast SEO (1 день).</div></div>
+    <div class="stage"><div class="stage-number">8</div><div class="stage-content"><strong>Тестирование, исправление ошибок</strong> — проверка ссылок, форм, отображения (1–2 дня).</div></div>
+    <div class="stage"><div class="stage-number">9</div><div class="stage-content"><strong>Передача сайта, инструкция, обучение</strong> — показываем, как менять контент (1 день).</div></div>
+    <p><strong>Итого: 10–14 рабочих дней.</strong></p>
+
+    <!-- 7. Обязанности заказчика -->
+    <h2>📦 7. Что должен предоставить заказчик</h2>
+    <ul>
+        <li>Тексты для всех разделов (можно черновиками).</li>
+        <li>Фотографии: логотип, фото команды, товаров/услуг, портфолио (15–30 шт.).</li>
+        <li>Контактные данные: телефон, e-mail, адрес, режим работы, ссылки на соцсети.</li>
+        <li>Цвета бренда (если есть брендбук) или пожелания по стилю.</li>
+    </ul>
+
+    <!-- 8. Что не входит в стоимость (доп. опции) -->
+    <h2>➕ 8. Дополнительные опции (за отдельную плату)</h2>
+    <ul>
+        <li>Дизайн логотипа «под ключ» — от 5 000 ₽</li>
+        <li>Наполнение товарами/услугами (свыше 10 позиций) — от 3 000 ₽</li>
+        <li>Подключение онлайн-оплаты (ЮKassa, CloudPayments) — от 10 000 ₽</li>
+        <li>Интеграция с CRM-системой (amoCRM, Bitrix24) — от 7 000 ₽</li>
+        <li>Дополнительные страницы (свыше 7 базовых) — 3 000 ₽/страница</li>
+        <li>Индивидуальный дизайн «с нуля» без темы — обсуждается отдельно</li>
+    </ul>
+
+    <!-- 9. Примеры сайтов, которые можно сделать за 42 000 -->
+    <h2>🏢 9. Примеры сайтов под бюджет 42 000 ₽</h2>
+    <div class="grid">
+        <div class="card"><h4>🦷 Стоматология</h4>Услуги, цены, врачи, отзывы, форма записи</div>
+        <div class="card"><h4>🔨 Ремонтная компания</h4>Виды работ, портфолио, калькулятор</div>
+        <div class="card"><h4>⚖️ Юрист / Адвокат</h4>Услуги, кейсы, консультация онлайн</div>
+        <div class="card"><h4>🧼 Клининг</h4>Цены, акции, форма заказа</div>
+        <div class="card"><h4>💅 Салон красоты</h4>Мастера, работы, цены, запись</div>
     </div>
 
-    <div id="portfolio" class="section">
-        <h2>Портфолио</h2>
-        <div class="grid">
-            <div class="card">
-                <img class="card-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400" alt="Проект 1">
-                <h3>Интернет-магазин</h3>
-                <p>Сайт с каталогом, корзиной и онлайн-оплатой.</p>
-            </div>
-            <div class="card">
-                <img class="card-img" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400" alt="Проект 2">
-                <h3>Сайт стоматологии</h3>
-                <p>Корпоративный сайт с формой записи.</p>
-            </div>
-            <div class="card">
-                <img class="card-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400" alt="Проект 3">
-                <h3>Лендинг доставки</h3>
-                <p>Продающая страница с высоким CTR.</p>
-            </div>
-        </div>
+    <!-- 10. Цена и условия -->
+    <div class="price-block">
+        <div class="big-price">42 000 ₽</div>
+        <p style="margin-top: 10px;">Стоимость фиксированная.<br>Домен и хостинг на 1 год — включены.<br>Никаких скрытых платежей.</p>
+        <p style="margin-top: 15px; font-size: 0.9rem;">✔️ Предоплата 50% (21 000 ₽) — после утверждения ТЗ и дизайна главной.<br>✔️ Остаток 50% (21 000 ₽) — после полной готовности сайта до передачи.</p>
     </div>
 
-    <div id="reviews" class="section">
-        <h2>Отзывы клиентов</h2>
-        <div class="grid">
-            <div class="card"><p>«Отличная работа! Всё сделали быстро и качественно. Рекомендую.»</p><strong>— Анна</strong></div>
-            <div class="card"><p>«Профессиональный подход. Спасибо за сотрудничество!»</p><strong>— Дмитрий</strong></div>
-            <div class="card"><p>«Лучшие специалисты. Буду обращаться ещё.»</p><strong>— Екатерина</strong></div>
-        </div>
-    </div>
+    <!-- 11. Документ для клиента -->
+    <h2>📄 11. Что делать клиенту с этим ТЗ</h2>
+    <p>✅ Внимательно прочитать.<br>
+    ✅ Если всё устраивает — подписать электронно или на бумаге.<br>
+    ✅ Предоставить тексты и фото по списку.<br>
+    ✅ Внести предоплату 21 000 ₽ — после этого начинаем работу по этапам.</p>
 
-    <!-- НОВОСТИ КЛИНИКИ (ВЫРОВНЕНЫ) -->
-    <div id="news" class="section">
-        <h2>Новости клиники</h2>
-        <div class="grid">
-            <div class="card"><h3>Новый тариф на SEO</h3><p>Запустили тариф «Бизнес» с усиленной аналитикой.</p></div>
-            <div class="card"><h3>Скидка на сайты до мая</h3><p>При заказе сайта — бесплатный месяц поддержки.</p></div>
-            <div class="card"><h3>Кейс: как вывели в топ</h3><p>Опубликовали разбор продвижения магазина игрушек.</p></div>
-        </div>
-    </div>
+    <hr>
 
-    <div id="contacts" class="section">
-        <h2>Контакты</h2>
-        <div class="contact-grid">
-            <div class="contact-info">
-                <p>📞 <strong>Телефон:</strong> +7 (911) 123-45-67</p>
-                <p>✉️ <strong>Email:</strong> info@example.ru</p>
-                <p>📍 <strong>Адрес:</strong> г. Санкт-Петербург, ул. Центральная, д. 10</p>
-                <p>🕒 <strong>Режим работы:</strong> Пн–Пт: 10:00–19:00</p>
-                <p>💬 <strong>Telegram/WhatsApp:</strong> +7 (911) 123-45-67</p>
-            </div>
-            <div class="map">
-                <iframe src="https://yandex.ru/map-widget/v1/?ll=30.315868,59.939095&z=14&pt=30.315868,59.939095,pm2rdm&size=300,250" allowfullscreen></iframe>
-            </div>
-        </div>
-
-        <div id="contact-form" style="margin-top: 40px;">
-            <h3 style="text-align: center; margin-bottom: 20px;">Форма обратной связи</h3>
-            <form style="max-width: 500px; margin: 0 auto;">
-                <div class="form-group"><input type="text" placeholder="Ваше имя" required></div>
-                <div class="form-group"><input type="tel" placeholder="Телефон" required></div>
-                <div class="form-group"><textarea placeholder="Сообщение"></textarea></div>
-                <div class="form-group"><input type="submit" value="Отправить" class="btn btn-submit"></div>
-            </form>
-        </div>
-    </div>
+    <footer>
+        <p>© 2026 Александра — веб-разработка под ключ. Работаю по всей России.<br>
+        Техническое задание является официальным документом и входит в договор на разработку сайта.</p>
+    </footer>
 </div>
-
-<div class="footer">
-    <p>© 2026 Ваша компания. Все права защищены.</p>
-    <div class="social-links">
-        <a href="#">Telegram</a> | <a href="#">WhatsApp</a> | <a href="#">VK</a>
-    </div>
-</div>
-
 </body>
 </html>
