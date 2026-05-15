@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Сайт под ключ за 42 000 ₽ — Пример работы</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Шапка */
+        .header {
+            background-color: #1a1a2e;
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+        .header .price {
+            font-size: 2.2rem;
+            color: #4CAF50;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 25px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        /* Основные блоки */
+        .section {
+            padding: 50px 0;
+            border-bottom: 1px solid #ddd;
+            background: white;
+        }
+        .section:nth-child(even) {
+            background-color: #fafafa;
+        }
+        .section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #1a1a2e;
+        }
+        .grid-3 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card .emoji {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .card h3 {
+            margin-bottom: 10px;
+            color: #1a1a2e;
+        }
+        .price-big {
+            font-size: 2rem;
+            color: #4CAF50;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .list {
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .list li {
+            margin-bottom: 12px;
+            list-style: none;
+            padding-left: 25px;
+            position: relative;
+        }
+        .list li:before {
+            content: "✓";
+            color: #4CAF50;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .contact-block {
+            text-align: center;
+            background: #1a1a2e;
+            color: white;
+            padding: 50px 0;
+        }
+        .contact-block .btn {
+            background-color: #4CAF50;
+            margin: 10px;
+        }
+        .contact-block .btn-outline {
+            background-color: transparent;
+            border: 2px solid #4CAF50;
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8rem; }
+            .header .price { font-size: 1.6rem; }
+            .section h2 { font-size: 1.5rem; }
+            .grid-3 { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <h1>Сайт под ключ</h1>
+        <div class="price">42 000 ₽</div>
+        <div class="subtitle">
+            Готовый работающий сайт за 7–10 дней<br>
+            Домен .ru и хостинг на год — В ПОДАРОК
+        </div>
+        <a href="#contact" class="btn">Заказать сайт</a>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h2>Что входит в стоимость</h2>
+        <div class="grid-3">
+            <div class="card">
+                <div class="emoji">🎨</div>
+                <h3>Уникальный дизайн</h3>
+                <p>Не шаблон — разработка с нуля под ваш бизнес. Адаптация под телефоны и планшеты.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">📞</div>
+                <h3>Формы заявок</h3>
+                <p>Заявки приходят на почту и в Telegram. Вы ничего не пропустите.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">🌐</div>
+                <h3>Домен и хостинг</h3>
+                <p>Домен .ru на год и хостинг на год — уже включены в цену.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">📘</div>
+                <h3>Инструкция</h3>
+                <p>Подробный гайд: как менять текст, фото и управлять сайтом.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">🛠️</div>
+                <h3>Поддержка 4 дня</h3>
+                <p>После запуска помогаю бесплатно — поправлю, если что-то не так.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">🔧</div>
+                <h3>2 бесплатные правки</h3>
+                <p>Внесём любые изменения в дизайн или текст после сдачи.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h2>Примеры сайтов, которые я делаю</h2>
+        <div class="grid-3">
+            <div class="card">
+                <div class="emoji">🧸</div>
+                <h3>Интернет-магазин</h3>
+                <p>Каталог, корзина, фильтры, оплата. Цена — от 50 000 ₽.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">🍝</div>
+                <h3>Сайт ресторана</h3>
+                <p>Меню, галерея, бронирование столов, карта проезда.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">📋</div>
+                <h3>Доска объявлений</h3>
+                <p>С объявлениями, фильтрами и админ-панелью.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h2>Почему стоит заказать у меня</h2>
+        <div class="grid-3">
+            <div class="card">
+                <div class="emoji">⏱️</div>
+                <h3>Срок — 7–10 дней</h3>
+                <p>Без обещаний «через месяц». Чёткие сроки в договоре.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">💎</div>
+                <h3>Работа с нуля</h3>
+                <p>Не конструктор и не шаблон. Чистый код, уникальный дизайн.</p>
+            </div>
+            <div class="card">
+                <div class="emoji">📞</div>
+                <h3>Отвечаю за 20 минут</h3>
+                <p>Всегда на связи. Работаю по всей России.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h2>Частые вопросы</h2>
+        <div class="list">
+            <li><strong>❓ Можно посмотреть примеры работ?</strong><br>➜ Да, напишите — пришлю ссылку на портфолио (6 реальных сайтов с ценами).</li>
+            <li><strong>❓ Какая предоплата?</strong><br>➜ 100% после приёмки. Сначала делаю — потом вы платите.</li>
+            <li><strong>❓ Нужен сайт срочно?</strong><br>➜ +30% к стоимости — сделаю за 3–4 дня.</li>
+            <li><strong>❓ А что через год с хостингом?</strong><br>➜ Хостинг закончится. Я помогу продлить — или вы сделаете это сами по инструкции.</li>
+        </div>
+    </div>
+</div>
+
+<div id="contact" class="contact-block">
+    <div class="container">
+        <h2>Свяжитесь со мной</h2>
+        <p>📞 8-911-287-06-94 (звонок, Telegram, WhatsApp)</p>
+        <p>✉️ aleksa.romanyuk31@gmail.com</p>
+        <a href="https://aleks-ars-ops.github.io/PORTFOLLIO1/" target="_blank" class="btn btn-outline">Посмотреть полное портфолио</a>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <p>© 2026 Александра — веб-разработка и контент под ключ. Работаю по всей России.</p>
+    </div>
+</div>
+
+</body>
+</html>
