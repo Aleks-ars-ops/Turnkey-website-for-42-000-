@@ -16,7 +16,6 @@
             color: #1e293b;
             background: #f8fafc;
         }
-        /* Навигация */
         .navbar {
             background: #0f172a;
             color: white;
@@ -47,7 +46,6 @@
         .nav-links a:hover {
             color: #22c55e;
         }
-        /* Герой */
         .hero {
             background: linear-gradient(135deg, #0f172a, #1e293b);
             color: white;
@@ -73,18 +71,18 @@
             font-weight: bold;
             margin-top: 1.5rem;
             transition: 0.3s;
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
             background: #16a34a;
             transform: scale(1.02);
         }
-        /* Контейнер */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        /* Секции */
         .section {
             padding: 60px 0;
             border-bottom: 1px solid #e2e8f0;
@@ -99,10 +97,9 @@
             font-size: 2rem;
             color: #0f172a;
         }
-        /* Карточки */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
         }
         .card {
@@ -113,22 +110,33 @@
             text-align: center;
             border: 1px solid #e2e8f0;
         }
+        .card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
         .card h3 {
             margin-bottom: 12px;
             color: #0f172a;
         }
         .price {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: #22c55e;
-            margin: 12px 0;
+            margin: 15px 0 5px;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #94a3b8;
+            font-size: 0.9rem;
         }
         .about-text {
             max-width: 800px;
             margin: 0 auto;
             text-align: center;
         }
-        /* Контакты + карта */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -150,7 +158,6 @@
             height: 100%;
             border: 0;
         }
-        /* Форма */
         .form-group {
             margin-bottom: 15px;
         }
@@ -165,14 +172,6 @@
             resize: vertical;
             min-height: 100px;
         }
-        .btn-submit {
-            background: #22c55e;
-            color: #0f172a;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-        /* Футер */
         .footer {
             background: #0f172a;
             color: white;
@@ -185,7 +184,6 @@
             text-decoration: none;
             margin: 0 10px;
         }
-        /* Адаптив */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -208,7 +206,6 @@
 </head>
 <body>
 
-<!-- НАВИГАЦИЯ -->
 <div class="navbar">
     <div class="logo">Бизнес-Название</div>
     <div class="nav-links">
@@ -222,7 +219,6 @@
     </div>
 </div>
 
-<!-- ГЛАВНЫЙ ЭКРАН -->
 <div class="hero">
     <h1>Ваш бизнес в интернете</h1>
     <p>Профессиональный сайт, который привлекает клиентов и работает на вас 24/7</p>
@@ -230,7 +226,6 @@
 </div>
 
 <div class="container">
-    <!-- О КОМПАНИИ -->
     <div id="about" class="section">
         <h2>О компании</h2>
         <div class="about-text">
@@ -239,39 +234,54 @@
         </div>
     </div>
 
-    <!-- УСЛУГИ -->
     <div id="services" class="section">
         <h2>Наши услуги</h2>
         <div class="grid">
             <div class="card">
-                <h3>Услуга 1</h3>
-                <p>Описание услуги. Расскажите клиенту, что он получит.</p>
-                <div class="price">от 5 000 ₽</div>
+                <img class="card-img" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400" alt="Услуга 1">
+                <h3>Разработка сайтов</h3>
+                <p>Создание сайта под ключ. Адаптив, админка, поддержка.</p>
+                <div class="price">42 000 ₽</div>
+                <div class="old-price">55 000 ₽</div>
             </div>
             <div class="card">
-                <h3>Услуга 2</h3>
-                <p>Описание услуги. Расскажите клиенту, что он получит.</p>
-                <div class="price">от 10 000 ₽</div>
+                <img class="card-img" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400" alt="Услуга 2">
+                <h3>SEO-продвижение</h3>
+                <p>Вывод сайта в топ-10 Яндекса и Google.</p>
+                <div class="price">25 000 ₽</div>
+                <div class="old-price">35 000 ₽</div>
             </div>
             <div class="card">
-                <h3>Услуга 3</h3>
-                <p>Описание услуги. Расскажите клиенту, что он получит.</p>
-                <div class="price">от 15 000 ₽</div>
+                <img class="card-img" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400" alt="Услуга 3">
+                <h3>Контекстная реклама</h3>
+                <p>Настройка и ведение рекламных кампаний.</p>
+                <div class="price">15 000 ₽</div>
+                <div class="old-price">22 000 ₽</div>
             </div>
         </div>
     </div>
 
-    <!-- ПОРТФОЛИО -->
     <div id="portfolio" class="section">
         <h2>Портфолио</h2>
         <div class="grid">
-            <div class="card"><h3>Проект 1</h3><p>Краткое описание выполненной работы.</p></div>
-            <div class="card"><h3>Проект 2</h3><p>Краткое описание выполненной работы.</p></div>
-            <div class="card"><h3>Проект 3</h3><p>Краткое описание выполненной работы.</p></div>
+            <div class="card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400" alt="Проект 1">
+                <h3>Интернет-магазин</h3>
+                <p>Сайт с каталогом, корзиной и онлайн-оплатой.</p>
+            </div>
+            <div class="card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400" alt="Проект 2">
+                <h3>Сайт стоматологии</h3>
+                <p>Корпоративный сайт с формой записи.</p>
+            </div>
+            <div class="card">
+                <img class="card-img" src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400" alt="Проект 3">
+                <h3>Лендинг доставки</h3>
+                <p>Продающая страница с высоким CTR.</p>
+            </div>
         </div>
     </div>
 
-    <!-- ОТЗЫВЫ -->
     <div id="reviews" class="section">
         <h2>Отзывы клиентов</h2>
         <div class="grid">
@@ -281,17 +291,15 @@
         </div>
     </div>
 
-    <!-- НОВОСТИ -->
     <div id="news" class="section">
         <h2>Новости</h2>
         <div class="grid">
-            <div class="card"><h3>Новость 1</h3><p>Краткое описание новости. Читать подробнее...</p></div>
-            <div class="card"><h3>Новость 2</h3><p>Краткое описание новости. Читать подробнее...</p></div>
-            <div class="card"><h3>Новость 3</h3><p>Краткое описание новости. Читать подробнее...</p></div>
+            <div class="card"><h3>Новый тариф на SEO</h3><p>Запустили тариф «Бизнес» с усиленной аналитикой.</p></div>
+            <div class="card"><h3>Скидка на сайты до мая</h3><p>При заказе сайта — бесплатный месяц поддержки.</p></div>
+            <div class="card"><h3>Кейс: как вывели в топ</h3><p>Опубликовали разбор продвижения магазина игрушек.</p></div>
         </div>
     </div>
 
-    <!-- КОНТАКТЫ + КАРТА + ФОРМА -->
     <div id="contacts" class="section">
         <h2>Контакты</h2>
         <div class="contact-grid">
@@ -307,7 +315,6 @@
             </div>
         </div>
 
-        <!-- ФОРМА ОБРАТНОЙ СВЯЗИ -->
         <div id="contact-form" style="margin-top: 40px;">
             <h3 style="text-align: center; margin-bottom: 20px;">Форма обратной связи</h3>
             <form style="max-width: 500px; margin: 0 auto;">
@@ -320,7 +327,6 @@
     </div>
 </div>
 
-<!-- ФУТЕР -->
 <div class="footer">
     <p>© 2026 Ваша компания. Все права защищены.</p>
     <div class="social-links">
