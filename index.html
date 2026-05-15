@@ -199,6 +199,18 @@
             text-decoration: none;
             margin: 0 10px;
         }
+        .portfolio-link {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: 16px;
+        }
+        .portfolio-link a {
+            color: #22c55e;
+            text-decoration: none;
+            font-weight: bold;
+        }
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -320,10 +332,10 @@
         <div class="contact-grid">
             <div class="contact-info">
                 <p>📞 <strong>Телефон:</strong> +7 (999) 123-45-67</p>
-                <p>✉️ <strong>Email:</strong> info@dentalklinik.ru</p>
+                <p>✉️ <strong>Email:</strong> info@site.ru</p>
                 <p>📍 <strong>Адрес:</strong> г. Санкт-Петербург, ул. Невская, д. 25</p>
                 <p>🕒 <strong>Режим работы:</strong> Пн–Вс: 9:00–21:00</p>
-                <p>💬 <strong>Telegram/WhatsApp:</strong> +7 (999) 123-45-67</p>
+                <p>💬 <strong>Telegram/WhatsApp:</strong> @username</p>
             </div>
             <div class="map">
                 <iframe src="https://yandex.ru/map-widget/v1/?ll=30.315868,59.939095&z=14&pt=30.315868,59.939095,pm2rdm&size=300,250" allowfullscreen></iframe>
@@ -332,13 +344,13 @@
 
         <div id="appointment-form" style="margin-top: 50px; background: #f1f5f9; padding: 30px; border-radius: 24px;">
             <h3 style="text-align: center; margin-bottom: 25px; color: #0f172a;">📝 Запись на приём</h3>
-            <form id="contactForm" style="max-width: 600px; margin: 0 auto;">
+            <form style="max-width: 600px; margin: 0 auto;">
                 <div class="form-row">
-                    <div class="form-group"><input type="text" id="name" placeholder="Ваше имя" required></div>
-                    <div class="form-group"><input type="tel" id="phone" placeholder="Телефон" required></div>
+                    <div class="form-group"><input type="text" placeholder="Ваше имя" required></div>
+                    <div class="form-group"><input type="tel" placeholder="Телефон" required></div>
                 </div>
                 <div class="form-group">
-                    <select id="service">
+                    <select>
                         <option value="">Выберите услугу</option>
                         <option>Профессиональная чистка (4 500 ₽)</option>
                         <option>Лечение кариеса (3 500 ₽)</option>
@@ -346,14 +358,20 @@
                         <option>Консультация врача</option>
                     </select>
                 </div>
-                <div class="form-group"><input type="text" id="date" placeholder="Удобная дата и время"></div>
-                <div class="form-group"><textarea id="message" placeholder="Дополнительные пожелания"></textarea></div>
+                <div class="form-group"><input type="text" placeholder="Удобная дата и время"></div>
+                <div class="form-group"><textarea placeholder="Дополнительные пожелания"></textarea></div>
                 <div class="checkbox-group">
-                    <input type="checkbox" id="privacy" required>
-                    <label for="privacy">Я согласен на обработку персональных данных</label>
+                    <input type="checkbox" required>
+                    <label>Я согласен на обработку персональных данных</label>
                 </div>
                 <div class="form-group"><input type="button" value="Записаться на приём" class="btn" style="width: 100%; margin-top: 10px;" onclick="alert('В реальном сайте заявки будут отправляться на вашу почту и Telegram. Сейчас это демо-версия.')"></div>
             </form>
+        </div>
+        
+        <!-- Ссылка на портфолио разработчика -->
+        <div class="portfolio-link">
+            <p>📌 Ещё больше примеров сайтов в моём портфолио:  
+            <a href="https://aleks-ars-ops.github.io/PORTFOLLIO1/" target="_blank">https://aleks-ars-ops.github.io/PORTFOLLIO1/</a></p>
         </div>
     </div>
 </div>
