@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сайт под ключ | Демо за 42 000 ₽</title>
+    <title>Санкт-Петербург | Такси «Быстрое»</title>
     <style>
         * {
             margin: 0;
@@ -11,134 +11,130 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #1e293b;
-            background: #f1f5f9;
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            color: #222;
+            background: #f4f4f4;
         }
-        /* ШАПКА И НАВИГАЦИЯ */
-        .navbar {
-            background: #0f172a;
+        /* НАВИГАЦИЯ */
+        nav {
+            background: #1a1a2e;
             color: white;
-            padding: 1rem 2rem;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 15px;
             position: sticky;
             top: 0;
             z-index: 100;
         }
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
-        }
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
         }
         .nav-links a {
             color: white;
             text-decoration: none;
-            transition: 0.3s;
+            margin-left: 20px;
         }
         .nav-links a:hover {
-            color: #22c55e;
+            color: #ff9800;
         }
         /* ГЛАВНЫЙ ЭКРАН */
         .hero {
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
             color: white;
             text-align: center;
-            padding: 80px 20px;
+            padding: 60px 20px;
         }
         .hero h1 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 15px;
         }
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .price-badge {
-            background: #22c55e;
-            color: #0f172a;
+        .price {
+            background: #ff9800;
+            color: #1a1a2e;
             display: inline-block;
-            padding: 12px 24px;
+            padding: 10px 25px;
             border-radius: 40px;
+            font-size: 1.6rem;
             font-weight: bold;
-            font-size: 1.4rem;
-            margin-top: 1.5rem;
+            margin: 20px 0;
         }
-        /* КОНТЕЙНЕР */
+        .btn {
+            display: inline-block;
+            background: #ff9800;
+            color: #1a1a2e;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #e68900;
+        }
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        /* СЕКЦИИ */
-        .section {
-            padding: 60px 0;
-            border-bottom: 1px solid #cbd5e1;
+        section {
+            padding: 50px 0;
             background: white;
+            border-bottom: 1px solid #ddd;
         }
-        .section:nth-child(even) {
-            background: #f8fafc;
-        }
-        .section h2 {
+        section h2 {
             text-align: center;
-            margin-bottom: 40px;
-            font-size: 2rem;
-            color: #0f172a;
+            margin-bottom: 35px;
+            font-size: 1.8rem;
+            color: #1a1a2e;
         }
-        /* КАРТОЧКИ УСЛУГ */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
         }
-        .service-card {
-            background: white;
+        .service-item {
+            background: #f9f9f9;
             padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            flex: 1;
+            min-width: 200px;
             text-align: center;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #eee;
         }
-        .service-card h3 {
-            margin-bottom: 15px;
-            color: #0f172a;
+        .service-item h3 {
+            margin-bottom: 10px;
+            color: #ff9800;
         }
         .service-price {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
-            color: #22c55e;
             margin: 15px 0;
         }
-        /* О КОМПАНИИ */
-        .about-text {
+        .about p {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 0 auto 20px;
             text-align: center;
-            font-size: 1.1rem;
         }
-        /* КОНТАКТЫ И КАРТА */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: start;
+            gap: 30px;
         }
         .contact-info p {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-size: 1.1rem;
         }
         .map {
-            background: #e2e8f0;
             height: 250px;
+            background: #ddd;
             border-radius: 12px;
             overflow: hidden;
         }
@@ -147,137 +143,108 @@
             height: 100%;
             border: 0;
         }
-        /* ПОДВАЛ */
-        .footer {
-            background: #0f172a;
+        footer {
+            background: #1a1a2e;
             color: white;
             text-align: center;
-            padding: 30px;
-            font-size: 0.9rem;
+            padding: 25px;
+            font-size: 0.85rem;
         }
-        /* КНОПКА */
-        .btn {
-            display: inline-block;
-            background: #22c55e;
-            color: #0f172a;
-            padding: 12px 28px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #16a34a;
-            transform: scale(1.02);
-        }
-        /* АДАПТИВ */
         @media (max-width: 768px) {
-            .navbar {
+            nav {
                 flex-direction: column;
                 text-align: center;
             }
-            .nav-links {
-                justify-content: center;
+            .nav-links a {
+                margin: 0 10px;
             }
             .hero h1 {
                 font-size: 1.8rem;
             }
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            .section h2 {
-                font-size: 1.6rem;
             }
         }
     </style>
 </head>
 <body>
 
-<!-- НАВИГАЦИОННАЯ ПАНЕЛЬ -->
-<div class="navbar">
-    <div class="logo">Компания</div>
+<nav>
+    <div class="logo">Такси «Быстрое»</div>
     <div class="nav-links">
         <a href="#">Главная</a>
         <a href="#services">Услуги</a>
         <a href="#about">О нас</a>
         <a href="#contacts">Контакты</a>
     </div>
-</div>
+</nav>
 
-<!-- ГЛАВНЫЙ ЭКРАН -->
 <div class="hero">
-    <h1>Сайт под ключ</h1>
-    <p>Полностью готовый, адаптивный сайт с навигацией, картой и контактами</p>
-    <div class="price-badge">42 000 ₽</div>
-    <div style="margin-top: 20px; font-size: 0.9rem;">Домен и хостинг на год — в подарок</div>
+    <h1>Такси «Быстрое»</h1>
+    <p>Подача машины за 5 минут. Фиксированные цены по Санкт-Петербургу</p>
+    <div class="price">42 000 ₽</div>
+    <div style="font-size: 0.9rem;">Домен и хостинг на год уже в подарок</div>
+    <a href="#contacts" class="btn">Заказать такси</a>
 </div>
 
 <div class="container">
-    <!-- УСЛУГИ -->
-    <div id="services" class="section">
-        <h2>Что входит в стоимость</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>🎨 Дизайн</h3>
-                <p>Уникальный дизайн под ваш бизнес, не шаблон</p>
-                <div class="service-price">✓</div>
+    <section id="services">
+        <h2>Наши тарифы</h2>
+        <div class="services">
+            <div class="service-item">
+                <h3>Эконом</h3>
+                <p>Hyundai Solaris, Kia Rio</p>
+                <div class="service-price">199 ₽ посадка</div>
+                <p>+ 25 ₽/км</p>
             </div>
-            <div class="service-card">
-                <h3>📱 Адаптивность</h3>
-                <p>Корректно работает на телефонах и планшетах</p>
-                <div class="service-price">✓</div>
+            <div class="service-item">
+                <h3>Комфорт</h3>
+                <p>Toyota Camry, Skoda Octavia</p>
+                <div class="service-price">299 ₽ посадка</div>
+                <p>+ 35 ₽/км</p>
             </div>
-            <div class="service-card">
-                <h3>📞 Форма заявки</h3>
-                <p>Заявки приходят на почту и в Telegram</p>
-                <div class="service-price">✓</div>
-            </div>
-            <div class="service-card">
-                <h3>🌐 Домен + хостинг</h3>
-                <p>Домен .ru и хостинг на 12 месяцев включены</p>
-                <div class="service-price">✓</div>
+            <div class="service-item">
+                <h3>Минивэн</h3>
+                <p>До 7 мест, для аэропорта</p>
+                <div class="service-price">499 ₽ фикс</div>
+                <p>до Пулково</p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- О НАС -->
-    <div id="about" class="section">
-        <h2>О компании</h2>
-        <div class="about-text">
-            <p>Мы работаем с 2015 года. Создаём сайты под ключ для малого и среднего бизнеса. Наша команда — это дизайнеры, верстальщики и программисты. Каждый проект получает уникальный дизайн, адаптивную вёрстку и полное техническое сопровождение.</p>
-            <p style="margin-top: 20px;">Срок изготовления: 7–10 дней. Работаем по всей России.</p>
-            <a href="#" class="btn">Обсудить проект</a>
+    <section id="about">
+        <h2>О такси «Быстрое»</h2>
+        <div class="about">
+            <p>Работаем в Санкт-Петербурге с 2015 года. Более 50 машин в парке. Все водители проходят медицинский контроль и знают город.</p>
+            <p>Детское кресло — бесплатно. Животные в переноске — бесплатно. Помощь с багажом — всегда.</p>
+            <p>🕒 Круглосуточно, без выходных</p>
         </div>
-    </div>
+    </section>
 
-    <!-- КОНТАКТЫ + КАРТА -->
-    <div id="contacts" class="section">
+    <section id="contacts">
         <h2>Контакты</h2>
         <div class="contact-grid">
             <div class="contact-info">
-                <p>📞 <strong>Телефон:</strong> <a href="tel:+79110000000" style="color: #22c55e;">+7 (911) 000-00-00</a></p>
-                <p>✉️ <strong>Email:</strong> <a href="mailto:info@example.ru" style="color: #22c55e;">info@example.ru</a></p>
-                <p>📍 <strong>Адрес:</strong> г. Санкт-Петербург, Невский пр., д. 100</p>
-                <p>🕒 <strong>Режим работы:</strong> Пн–Пт: 10:00–19:00</p>
-                <p>💬 <strong>Telegram / WhatsApp:</strong> +7 (911) 000-00-00</p>
+                <p>📞 <strong>Телефон:</strong> <a href="tel:+78121234567" style="color:#ff9800;">+7 (812) 123-45-67</a></p>
+                <p>💬 <strong>Telegram:</strong> @bistrotaxi_spb</p>
+                <p>📍 <strong>Адрес офиса:</strong> ул. Садовая, д. 28, Санкт-Петербург</p>
+                <p>🕒 <strong>Работаем:</strong> 24/7, без выходных</p>
+                <p>📱 <strong>Приложение:</strong> Яндекс.Такси, Uber</p>
             </div>
             <div class="map">
                 <iframe 
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A647b8e9a8b8d8b8f0b1c2d3e4f5a6b7c&source=constructor" 
+                    src="https://yandex.ru/map-widget/v1/?ll=30.315868,59.939095&z=14&pt=30.315868,59.939095,pm2rdm&size=300,250"
                     allowfullscreen>
                 </iframe>
             </div>
         </div>
-    </div>
+    </section>
 </div>
 
-<!-- ПОДВАЛ -->
-<div class="footer">
-    <p>© 2026 Сайт под ключ — 42 000 ₽. Пример готового сайта.</p>
-    <p style="margin-top: 10px; font-size: 0.8rem;">Адаптивный дизайн | Навигационная панель | Карта проезда | Контактная форма</p>
-</div>
+<footer>
+    <p>© 2026 Такси «Быстрое». Сайт под ключ за 42 000 ₽</p>
+    <p style="margin-top: 8px;">Пример готового сайта для клиента</p>
+</footer>
 
 </body>
 </html>
